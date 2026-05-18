@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'zod';
 import { glob } from 'astro/loaders';
 
 const events = defineCollection({
@@ -10,6 +11,8 @@ const events = defineCollection({
     venue: z.string(),
     dressCodeFi: z.string().optional(),
     dressCodeEn: z.string().optional(),
+    bodyEn: z.string().optional(),
+    ticketUrl: z.url().optional(),
     featured: z.boolean().default(false),
     order: z.number().default(0),
   }),

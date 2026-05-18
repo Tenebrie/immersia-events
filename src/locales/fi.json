@@ -12,13 +12,14 @@
   },
   "home": {
     "hero": {
-      "title": "[Otsikko: Tapahtuman iskulause]",
-      "subtitle": "[Paikkamerkki: 1–2 lausetta Immersia Events -tapahtumien tunnelmasta ja luonteesta]",
-      "cta": "Katso tulevat tapahtumat"
+      "title": "Jokihovin syystanssiaiset",
+      "subtitle": "Turun ensimmäiset fantasiatanssiaiset — 5. syyskuuta 2026",
+      "cta": "Lue lisää",
+      "tickets_cta": "Osta liput"
     },
     "about_blurb": {
-      "heading": "[Otsikko: Mitä teemme]",
-      "body": "[Paikkamerkki: 2–3 lausetta yrityksestä, sen toiminnasta ja tapahtumien hengestä. Kuvaa tunnelmaa ja kokemusta.]"
+      "heading": "Immersia Events",
+      "body": "Immersia Events järjestää fantasiateemaisia tapahtumia — iltoja, jotka irrottavat arjesta ja kutsuvat uppoamaan mielikuvituksen maailmaan. Jokihovin syystanssiaiset on yrityksen ensiaskel: Turun ensimmäiset fantasiatanssiaiset."
     },
     "featured_event": {
       "heading": "Tuleva tapahtuma"
@@ -48,13 +49,14 @@
       "dress_code_body": "[Paikkamerkki: pukukoodin kuvaus ja ohjeet]",
       "what_to_expect": "Mitä odottaa",
       "tickets_heading": "Liput",
-      "tickets_cta": "[Liput tulossa pian — tarkista uudelleen myöhemmin]",
+      "tickets_cta": "Osta liput",
+      "tickets_note": "[Paikkamerkki: lyhyt lisätieto lipuista, hinnasta tai saatavuudesta]",
       "faq_heading": "Usein kysytyt kysymykset",
       "faq_q1": "[Kysymys 1]",
       "faq_a1": "[Paikkamerkki: vastaus kysymykseen 1]",
       "faq_q2": "[Kysymys 2]",
       "faq_a2": "[Paikkamerkki: vastaus kysymykseen 2]",
-      "back": "← Takaisin tapahtumiin"
+      "back": "← Takaisin etusivulle"
     }
   },
   "gallery": {
@@ -65,25 +67,29 @@
   },
   "about": {
     "title": "Meistä",
-    "body1": "[Paikkamerkki: 2–3 lausetta yrityksestä ja sen syntytarinasta. Kuka me olemme ja mistä kaikki alkoi.]",
-    "body2": "[Paikkamerkki: 2–3 lausetta tiimistä, arvoista ja siitä, mikä tekee tapahtumistamme erityisiä.]",
+    "body1": "Immersia Events on toiminimiyrittäjä Johanna Ahosen sivutoiminimi, jonka alla toteutetaan fantasiateemaisia tapahtumia. Yrityksen nimi syntyi halusta viitata siihen arjen syrjäyttävään immersiiviseen kokemukseen, jollainen hyvin järjestetty fantasiatapahtuma voi olla. Immersia voisi olla myös jonkin fantasiamaailman nimi — nimikokonaisuus toimii tässä yhteydessä hienosti.",
+    "body2": "Olen lukenut ja rakastanut fantasiaa teinivuosista asti — kokemusta genrestä alkaa olla kohta yli 35 vuoden ajalta. Opiskeluvuosina osallistuin mm. Suomen ensimmäisen Finncon-Euroconin järjestämiseen kyseisen tapahtuman puheenjohtajana. Immersia Events -aputoiminimen rekisteröin kevättalvella 2026, jotta voisin jatkossakin järjestää fantasiateemaisia tapahtumia.",
+    "logo_credit": "Immersia Events -logon on suunnitellut Jani Kujanen.",
     "values_heading": "Arvomme",
-    "value1": "[Arvo 1]",
-    "value2": "[Arvo 2]",
-    "value3": "[Arvo 3]"
+    "value1": "Inklusiivisuus ja tasa-arvo",
+    "value2": "Yhteisöllisyys",
+    "value3": "Paikallisuuden ja pienyrittäjyyden tukeminen"
   },
   "contact": {
     "title": "Yhteystiedot",
     "intro": "[Paikkamerkki: lyhyt teksti, joka kutsuu ottamaan yhteyttä — kysymykset, yhteistyö, media]",
     "email_heading": "Sähköposti",
-    "email": "hei@immersia.fi",
+    "email": "jokihovinsyystanssiaiset@gmail.com",
     "socials_heading": "Seuraa meitä",
     "instagram": "Instagram",
     "facebook": "Facebook"
   },
   "footer": {
     "rights": "Kaikki oikeudet pidätetään.",
-    "tagline": "[Paikkamerkki: lyhyt slogan]"
+    "tagline": "[Paikkamerkki: lyhyt slogan]",
+    "legal_name": "Immersia Events",
+    "legal_person": "Elinkeinoharjoittaja Johanna Ahonen",
+    "legal_id": "Y-tunnus 3430111-9"
   },
   "event_card": {
     "learn_more": "Lue lisää",
@@ -91,10 +97,58 @@
   },
   "meta": {
     "site_name": "Immersia Events",
-    "home_desc": "[Paikkamerkki: sivuston lyhyt kuvaus hakukoneita varten]",
-    "events_desc": "[Paikkamerkki: tapahtumien sivun kuvaus]",
-    "gallery_desc": "[Paikkamerkki: gallerian sivun kuvaus]",
-    "about_desc": "[Paikkamerkki: Meistä-sivun kuvaus]",
-    "contact_desc": "[Paikkamerkki: yhteystietojen sivun kuvaus]"
+    "home_desc": "Jokihovin syystanssiaiset — Turun ensimmäiset fantasiatanssiaiset 5.9.2026. Tanssia, esityksiä ja taianomista tunnelmaa VPK:n talolla.",
+    "events_desc": "Tulevat tapahtumat — Immersia Events",
+    "gallery_desc": "Galleria — Immersia Events",
+    "about_desc": "Tietoa Immersia Eventsistä ja Johanna Ahosesta",
+    "contact_desc": "Yhteystiedot — Immersia Events"
+  },
+  "event_detail": {
+    "what_is_heading": "Fantasiatanssiaiset — mitä ne ovat?",
+    "what_is_body_1": "Fantasiatanssiaiset ovat tapahtuma, jossa yhdistyvät suomalaisittain ajatellen vanhojentanssien koreografioitu tanssiminen, cosplay- tai keskiaikatapahtuman juhlava teemapukeutuminen ja eri fantasiamaailmojen fanittaminen.",
+    "what_is_body_2": "Maailmalla fantasiatanssiaisia järjestetään esimerkiksi Iso-Britanniassa, Ranskassa, Yhdysvalloissa ja Kanadassa. Tapahtumien suosio selittynee esimerkiksi romantasiagenren nousulla ja lukemisharrastuksen uudella aallolla. Fantasiakulttuurin harrastajien on helppo löytää toisensa someympäristöissä, ja kun yhtälöön lisätään halu tavata muita harrastajia kasvotusten sekä eläytyä rakastettuihin fantasiatarinoihin, tanssiaisten edellytykset ovat kasassa.",
+    "what_is_body_3": "Ennen kaikkea fantasiatanssiaiset ovat esteettisen fantasiakulttuurin riemukas ilmentymä — tapahtuma, jossa jokainen saa antaa mielikuvitukselleen ja leikkisyydelleen tilaa. Fantasiatanssiaisissa on lupa pukeutua näyttävästi, tanssia pitkälle yöhön, fanittaa yhdessä ja luoda muistoja.",
+    "ticket_includes_heading": "Lipun hinta sisältää:",
+    "ticket_includes": [
+      "ainutlaatuisen juhlaelämyksen upeassa miljöössä",
+      "narikkamaksun",
+      "tervetuliaismaljan",
+      "pientä cocktailpalatyyppistä syötävää",
+      "tanssia esitanssijan ohjeistamana (historiallisia tansseja ym.)",
+      "useampia tunnelmaan sopivia esityksiä illan aikana",
+      "loppuillan vapaan tanssiajan yökerhotunnelmissa",
+      "virallisen tapahtumavalokuvaajan kuvaamia kuvia",
+      "valokuvauspiste myös omille kuville"
+    ],
+    "ticket_vat_note": "Lipun hinta sisältää ALV:n ja Lippu.light-palvelumaksun.",
+    "bar_note": "Lisäksi illan aikana janoisia juhlijoita palvelee VPK:n talon omakustanteinen baari (A-oikeudet).",
+    "good_to_know_heading": "Hyvä tietää",
+    "good_to_know_1": "Illan aikana tarjoillaan pieni määrä napostelutyylistä syötävää, mutta ohjelmassa ei ole varsinaista ruokailua. Kehotamme siksi tulemaan juhliin tukevamman illallisen kautta.",
+    "good_to_know_2": "VPK:n talon pääovista sisäänpääsy alkaa klo 17.45. Liput luetaan ovella sähköisesti. Pääovet sulkeutuvat ja lukitaan, kun tapahtuman ohjelma-aika alkaa. Jos saavut myöhässä, pääset sisälle pihan puolelta — vahtimestari tarkistaa sivuoven kautta saapuvien liput.",
+    "side_events_heading": "Oheistapahtumat",
+    "side_events_body": "Mahdollisesta tanssinopetuksesta ennen tapahtumaa tiedotamme myöhemmin. Mikäli tanssi-workshop toteutuu, siihen voi osallistua erillisellä maksulla. Pyrimme myös järjestämään muuta fantasiateemaista ohjelmaa perjantaille 4.9. yhteistyökumppanien avulla. Tiedotamme lisää, kun suunnitelmia vahvistetaan.",
+    "accessibility_heading": "Esteettömyys ja inklusiivisuus",
+    "accessibility_1": "VPK:n talo on esteetön juhlatila. Hissi kulkee kaikkien kerroksien välillä ja sisään pääsee pihan puolelta ramppia pitkin.",
+    "accessibility_2": "Monet vieraamme tulevat paikalle pukeutuneina pitkiin, mahdollisesti laahuksellisiinkin juhla-asuihin — toivomme siksi jokaiselta vieraalta huomaavaisuutta kulkemisessa. Huomioidaan jokaisen juhlijan turvallinen liikkuminen.",
+    "accessibility_3": "Tilaisuus on arvomaailmaltaan inklusiivinen, tasa-arvoinen ja yhteisöllinen. Juhlissa jokainen saa olla oma itsensä — tai oma roolihahmonsa — juuri sellaisena kuin on. Tanssiaisten ajaksi VPK:n talon WC-tilat merkitään sukupuolineutraaleiksi.",
+    "accessibility_4": "Jokaisella vieraalla on ehdoton kehorauha, emmekä suvaitse syrjivää tai vahingoittavaa käytöstä keneltäkään. Varmista aina, onko ok koskea tai kuvata — älä oleta mitään kenestäkään.",
+    "accessibility_5": "Tapahtumassa on erikseen nimetty häirintäyhdyshenkilö, jonka puoleen voi kääntyä tarvittaessa. Hyvät tavat ja huomaavaisuus takaavat meille kaikille mukavan illan.",
+    "dress_code_heading": "Pukukoodi ja asuvinkkejä",
+    "dress_code_1": "Tanssiaisten pukukoodina on fantasiateemainen juhlapukeutuminen.",
+    "dress_code_2": "Voit ammentaa ideoita asukokonaisuuteesi fantasia- ja satumaailmoista — elokuvista, sarjoista ja romaanienkin kuvailemista tyyleistä. Jokihovin syystanssiaisten teema on geneerinen fantasiahovi, joten tulkinnat asujen suhteen voivat olla varsin laajat.",
+    "dress_code_3": "Tyypillisesti fantasiatanssiaisten yhteydessä mieleen tulevat pitkät iltapuvut ja tanssiaismekot, historiallisten aikakausien muodolliset juhlavaatteet, haltiakorvat, näyttävät korut sekä siipien, sarvien tai terävien kulmahampaiden kaltaiset propit tai maskeeraukset.",
+    "dress_code_4": "Yksinkertaisimmillaan voit vuokrata juhlapuvun pukuvuokraamosta ja asustaa sen esimerkiksi koruilla tai kukilla — sinun fantasiahahmosi, sinun tarinasi. Meille tärkeintä on, että voit tanssia ja juhlia koko illan mukavasti.",
+    "dress_code_5": "Huomioi asua suunnitellessasi myös jalkinekysymys. Toivomme juhlavuuden näkyvän päästä varpaisiin, mutta tarkoitus on myös tanssia yötä myöten.",
+    "inspiration_heading": "Inspiraatiota",
+    "inspiration_body": "Vinkkejä asuihin ja muuta inspiraatiota voit saada ulkomaisista tapahtumista. Seuraa esimerkiksi näitä tilejä Instagramissa:",
+    "inspiration_accounts": "@faetedfantasy · @mysticfateuk · @acourtofrainandrevelry · @metbymoonlightevents · @gauntletsandgownsevents · @lesbaldeslegendes · @faeriewayevents",
+    "getting_there_heading": "Saapuminen Turkuun ja juhlapaikalle",
+    "getting_there_1": "Turkuun pääsee helposti julkisilla liikennevälineillä. Turun päärautatieasemalta ja linja-autoasemalta on lyhyt matka ydinkeskustaan, missä juhlatila sijaitsee osoitteessa Eskelinkatu 5.",
+    "getting_there_2": "Kansainväliset vieraat voivat hyödyntää lentoreittejä Helsinkiin tai Turkuun. Tukholmasta pääsee Turkuun myös laivalla.",
+    "getting_there_3": "Omalla autolla saapuville pysäköintimahdollisuuksia on VPK:n talon läheisyydessä katujen varsilla. Ydinkeskustan maanalaiset pysäköintihallit P-Louhi ja Toriparkki ovat auki vuorokauden ympäri.",
+    "accommodation_heading": "Majoitus",
+    "accommodation_intro": "Juhlatilan välittömässä läheisyydessä on useita hotelleja. Lähin hotelli, Solo Sokos Hotel Turun Seurahuone, on kadun toisella puolella VPK:n talolta.",
+    "accommodation_sokos_deal": "Jokihovin syystanssiaisten vieraille on varattu 20 hotellihuoneen kiintiö alennetuilla hinnoilla 5.–6.9.2026 väliseksi yöksi. Tarjoushinnat 125 € / 1hh Solo ja 145 € / 2hh Solo ovat voimassa 29.8.2026 klo 16.30 mennessä tehtyihin varauksiin, niin kauan kuin kiintiötä on jäljellä. Mainitse varausta tehdessäsi tunnus \"Jokihovin syystanssiaiset\". Netissä varauskoodi on BJOKIHOVI.",
+    "accommodation_other": "Radisson Blu Marina Palace on muutaman minuutin kävelymatkan päässä. Ydinkeskustasta löytyy myös Scandic-, Sokos- ja Omena-ketjujen hotelleja sekä pienempiä putiikkihotelleja — lähes kaikista kävelee juhlapaikalle muutamassa minuutissa."
   }
 }

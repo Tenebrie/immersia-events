@@ -28,7 +28,7 @@ const navLinks = [
           href={localePath(locale, '/')}
           class="font-display text-2xl tracking-[0.2em] uppercase text-brand-cream hover:text-brand-gold transition-colors"
         >
-          Immersia
+          Immersia Events
         </a>
         <p class="mt-3 text-sm text-brand-cream-muted leading-relaxed">
           {t(locale, 'footer.tagline')}
@@ -53,12 +53,16 @@ const navLinks = [
   </div>
 
   <div class="border-t border-brand-gold/10">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center gap-3">
-      <Sparkle size={10} class="text-brand-gold/40" />
-      <p class="text-xs text-brand-cream/40 tracking-wide">
-        &copy; {year} {t(locale, 'meta.site_name')}. {t(locale, 'footer.rights')}
+    <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <Sparkle size={10} class="text-brand-gold/40" />
+        <p class="text-xs text-brand-cream/40 tracking-wide">
+          &copy; {year} {t(locale, 'footer.legal_name')}. {t(locale, 'footer.rights')}
+        </p>
+      </div>
+      <p class="text-xs text-brand-cream/30 tracking-wide text-center sm:text-right">
+        {t(locale, 'footer.legal_person')} &middot; {t(locale, 'footer.legal_id')}
       </p>
-      <Sparkle size={10} class="text-brand-gold/40" />
     </div>
   </div>
 </footer>

@@ -19,12 +19,6 @@ const heroImageModules = import.meta.glob<{ default: ImageMetadata }>(
 );
 const heroImage = Object.values(heroImageModules)[0]?.default;
 
-const logoImageModules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/logo.{png,svg,webp}',
-  { eager: true }
-);
-const logoImage = Object.values(logoImageModules)[0]?.default;
-
 const allEvents = await getCollection('events');
 const featuredEvent = allEvents.find((e) => e.data.featured) ?? allEvents[0];
 
@@ -41,48 +35,25 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
   aria-labelledby="hero-heading"
 >
   <!-- Background layers -->
-  <div
-    class="absolute inset-0"
-    style="background: linear-gradient(135deg, #1a0c33 0%, #2a1248 50%, #3d1f63 100%);"
-    aria-hidden="true"
-  ></div>
+  <div class="absolute inset-0 bg-brand-purple-dark" aria-hidden="true"></div>
   {heroImage && (
     <Image
       src={heroImage}
       alt=""
-      class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity"
+      class="absolute inset-0 w-full h-full object-cover opacity-55"
       loading="eager"
       widths={[800, 1200, 1600]}
       sizes="100vw"
     />
   )}
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(to bottom, rgba(26,12,51,0.5) 0%, rgba(26,12,51,0.1) 40%, rgba(26,12,51,0.6) 100%);"
+    aria-hidden="true"
+  ></div>
   <!-- Content -->
   <div class="relative z-10 text-center px-6 py-24 max-w-3xl mx-auto">
-    {logoImage ? (
-      <div class="mb-10 flex justify-center">
-        <Image
-          src={logoImage}
-          alt="Immersia Events"
-          width={220}
-          loading="eager"
-          class="max-w-[220px]"
-        />
-      </div>
-    ) : (
-      <div class="mb-10 flex items-center justify-center gap-4" aria-hidden="true">
-        <Sparkle size={18} class="text-brand-gold/60" />
-        <span class="font-display text-4xl tracking-[0.3em] uppercase text-brand-cream">
-          Immersia
-        </span>
-        <Sparkle size={18} class="text-brand-gold/60" />
-      </div>
-    )}
 
-    <div class="flex items-center justify-center gap-4 mb-6" aria-hidden="true">
-      <span class="block h-px w-12 bg-brand-gold/30"></span>
-      <Sparkle size={12} class="text-brand-gold" />
-      <span class="block h-px w-12 bg-brand-gold/30"></span>
-    </div>
 
     <h1
       id="hero-heading"
@@ -95,11 +66,48 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
       {t(locale, 'home.hero.subtitle')}
     </p>
 
-    <a href={localePath(locale, '/events')} class="btn-primary">
-      {t(locale, 'home.hero.cta')}
-    </a>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      {featuredEvent?.data.ticketUrl && (
+        <a
+          href={featuredEvent.data.ticketUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          {t(locale, 'home.hero.tickets_cta')}
+        </a>
+      )}
+      <a
+        href={featuredEvent ? localePath(locale, `/events/${featuredEvent.id}`) : localePath(locale, '/events')}
+        class:list={[
+          featuredEvent?.data.ticketUrl
+            ? 'text-sm tracking-[0.12em] uppercase text-brand-cream/60 hover:text-brand-cream transition-colors'
+            : 'btn-primary',
+        ]}
+      >
+        {t(locale, 'home.hero.cta')}
+      </a>
+    </div>
   </div>
 </section>
+
+<!-- Featured event (shown first after hero) -->
+{featuredEvent && (
+  <section class="py-16 px-6 bg-brand-purple/30" aria-labelledby="featured-heading">
+    <div class="max-w-3xl mx-auto">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={12} class="text-brand-gold" />
+      </div>
+      <h2
+        id="featured-heading"
+        class="font-display text-2xl tracking-[0.15em] uppercase text-brand-cream-muted text-center mb-8"
+      >
+        {t(locale, 'home.featured_event.heading')}
+      </h2>
+      <EventCard event={featuredEvent} locale={locale} />
+    </div>
+  </section>
+)}
 
 <!-- About blurb -->
 <section class="py-24 px-6" aria-labelledby="about-heading">
@@ -118,24 +126,6 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
     </p>
   </div>
 </section>
-
-<!-- Featured event -->
-{featuredEvent && (
-  <section class="py-12 px-6 bg-brand-purple/30" aria-labelledby="featured-heading">
-    <div class="max-w-3xl mx-auto">
-      <div class="section-rule" aria-hidden="true">
-        <Sparkle size={12} class="text-brand-gold" />
-      </div>
-      <h2
-        id="featured-heading"
-        class="font-display text-2xl tracking-[0.15em] uppercase text-brand-cream-muted text-center mb-8"
-      >
-        {t(locale, 'home.featured_event.heading')}
-      </h2>
-      <EventCard event={featuredEvent} locale={locale} />
-    </div>
-  </section>
-)}
 
 <!-- Gallery teaser -->
 {hasGalleryImages && (

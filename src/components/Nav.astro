@@ -1,5 +1,7 @@
 ---
-import { Menu, X } from 'lucide-astro';
+import { Image } from 'astro:assets';
+import { Menu } from 'lucide-astro';
+import logoImg from '../assets/logo.svg';
 import type { Locale } from '../utils/i18n';
 import { t, localePath, getAlternatePath } from '../utils/i18n';
 
@@ -12,7 +14,6 @@ const { locale, currentPath } = Astro.props;
 
 const navLinks = [
   { key: 'nav.home', path: '/' },
-  { key: 'nav.events', path: '/events' },
   { key: 'nav.gallery', path: '/gallery' },
   { key: 'nav.about', path: '/about' },
   { key: 'nav.contact', path: '/contact' },
@@ -37,10 +38,10 @@ const alternatePath = getAlternatePath(locale, currentPath);
 
       <a
         href={localePath(locale, '/')}
-        class="font-display text-xl tracking-[0.2em] uppercase text-brand-cream hover:text-brand-gold transition-colors"
         aria-label={t(locale, 'meta.site_name')}
+        class="shrink-0"
       >
-        Immersia
+        <Image src={logoImg} alt="Immersia Events" height={40} width={40} class="h-10 w-auto" />
       </a>
 
       <!-- Desktop navigation -->

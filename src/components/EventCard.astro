@@ -13,9 +13,10 @@ const { event, locale } = Astro.props;
 const title = locale === 'fi' ? event.data.titleFi : event.data.titleEn;
 const slug = event.id;
 const href = localePath(locale, `/events/${slug}`);
+const { ticketUrl } = event.data;
 ---
 
-<article class="border border-brand-gold/20 bg-brand-purple p-8 relative group">
+<article class="border border-brand-gold/20 bg-brand-purple p-8 relative">
   <div class="absolute top-0 left-0 right-0 h-px bg-brand-gold/40"></div>
 
   <div class="flex items-center gap-2 mb-4">
@@ -29,15 +30,27 @@ const href = localePath(locale, `/events/${slug}`);
     {title}
   </h3>
 
-  <p class="text-sm text-brand-cream-muted leading-relaxed mb-6">
+  <p class="text-sm text-brand-cream-muted leading-relaxed mb-8">
     {event.data.venue}
   </p>
 
-  <a
-    href={href}
-    class="text-xs tracking-[0.15em] uppercase text-brand-gold hover:text-brand-gold-light transition-colors inline-flex items-center gap-2"
-  >
-    {t(locale, 'event_card.learn_more')}
-    <span aria-hidden="true">→</span>
-  </a>
+  <div class="flex flex-wrap items-center gap-4">
+    {ticketUrl && (
+      <a
+        href={ticketUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+      >
+        {t(locale, 'events.details.tickets_cta')}
+      </a>
+    )}
+    <a
+      href={href}
+      class="text-xs tracking-[0.15em] uppercase text-brand-gold hover:text-brand-gold-light transition-colors inline-flex items-center gap-2"
+    >
+      {t(locale, 'event_card.learn_more')}
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
 </article>

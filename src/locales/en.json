@@ -12,13 +12,14 @@
   },
   "home": {
     "hero": {
-      "title": "[Heading: Short event tagline]",
-      "subtitle": "[Placeholder: 1–2 sentences about the atmosphere and nature of Immersia Events]",
-      "cta": "View upcoming events"
+      "title": "River Court Autumn Ball",
+      "subtitle": "The first Fantasy Ball in Turku — 5 September 2026",
+      "cta": "Learn more",
+      "tickets_cta": "Buy tickets"
     },
     "about_blurb": {
-      "heading": "[Heading: What we do]",
-      "body": "[Placeholder: 2–3 sentences about the company, what it does, and the spirit of its events. Describe the atmosphere and experience.]"
+      "heading": "Immersia Events",
+      "body": "Immersia Events organises fantasy-themed events — evenings that pull you out of the everyday and invite you to immerse yourself in a world of imagination. The River Court Autumn Ball is the company's first step."
     },
     "featured_event": {
       "heading": "Upcoming event"
@@ -48,13 +49,14 @@
       "dress_code_body": "[Placeholder: dress code description and guidance]",
       "what_to_expect": "What to expect",
       "tickets_heading": "Tickets",
-      "tickets_cta": "[Tickets coming soon — check back later]",
+      "tickets_cta": "Buy tickets",
+      "tickets_note": "[Placeholder: short note about tickets, price, or availability]",
       "faq_heading": "Frequently asked questions",
       "faq_q1": "[Question 1]",
       "faq_a1": "[Placeholder: answer to question 1]",
       "faq_q2": "[Question 2]",
       "faq_a2": "[Placeholder: answer to question 2]",
-      "back": "← Back to events"
+      "back": "← Back to home"
     }
   },
   "gallery": {
@@ -65,25 +67,29 @@
   },
   "about": {
     "title": "About",
-    "body1": "[Placeholder: 2–3 sentences about the company and its origin story. Who we are and where it all began.]",
-    "body2": "[Placeholder: 2–3 sentences about the team, values, and what makes our events special.]",
+    "body1": "Immersia Events is a small events company founded by Johanna Ahonen, with the goal of organising fantasy-themed events. The name Immersia captures the immersive quality that a well-crafted fantasy event can offer — a world apart from the everyday. Immersia could just as well be the name of a fantasy realm, which makes it a perfect fit.",
+    "body2": "Johanna has been a lifelong fantasy reader, with over 35 years of experience in the genre. In her student years she served as chair of Finland's first Finncon-Eurocon. The Immersia Events trade name was registered in early 2026 to create a home for future fantasy-themed events.",
+    "logo_credit": "The Immersia Events logo was designed by Jani Kujanen.",
     "values_heading": "Our values",
-    "value1": "[Value 1]",
-    "value2": "[Value 2]",
-    "value3": "[Value 3]"
+    "value1": "Inclusivity and equality",
+    "value2": "Sense of community",
+    "value3": "Supporting local businesses and young cultural talent"
   },
   "contact": {
     "title": "Contact",
     "intro": "[Placeholder: short text inviting visitors to get in touch — questions, collaboration, media enquiries]",
     "email_heading": "Email",
-    "email": "hello@immersia.fi",
+    "email": "jokihovinsyystanssiaiset@gmail.com",
     "socials_heading": "Follow us",
     "instagram": "Instagram",
     "facebook": "Facebook"
   },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "[Placeholder: short tagline]"
+    "tagline": "[Placeholder: short tagline]",
+    "legal_name": "Immersia Events",
+    "legal_person": "Elinkeinoharjoittaja Johanna Ahonen",
+    "legal_id": "Y-tunnus 3430111-9"
   },
   "event_card": {
     "learn_more": "Learn more",
@@ -91,10 +97,58 @@
   },
   "meta": {
     "site_name": "Immersia Events",
-    "home_desc": "[Placeholder: site description for search engines]",
-    "events_desc": "[Placeholder: events page description]",
-    "gallery_desc": "[Placeholder: gallery page description]",
-    "about_desc": "[Placeholder: about page description]",
-    "contact_desc": "[Placeholder: contact page description]"
+    "home_desc": "River Court Autumn Ball — the first Fantasy Ball in Turku, 5 September 2026. Dance, performances, and magical atmosphere at VPK's dance hall.",
+    "events_desc": "Upcoming events — Immersia Events",
+    "gallery_desc": "Gallery — Immersia Events",
+    "about_desc": "About Immersia Events and Johanna Ahonen",
+    "contact_desc": "Contact — Immersia Events"
+  },
+  "event_detail": {
+    "what_is_heading": "What is a fantasy ball?",
+    "what_is_body_1": "A fantasy ball is an event that combines the choreographed dancing of a formal ball with the costumed flair of a cosplay or historical event, all wrapped in a celebration of fantasy worlds and their fandoms.",
+    "what_is_body_2": "Fantasy balls are organised across the world — in the UK, France, the US, Canada, and elsewhere. Their growing popularity is driven in part by the rise of the romantasy genre and a new wave of reading culture. Fantasy fans find each other easily online, and when you add the desire to meet fellow enthusiasts in person and step into beloved fantasy stories, all the ingredients for a ball are in place.",
+    "what_is_body_3": "Above all, a fantasy ball is a joyful expression of aesthetic fantasy culture — an event where everyone is encouraged to let their imagination and playfulness run free. You are welcome to dress spectacularly, dance far into the night, share your fandoms, and create memories.",
+    "ticket_includes_heading": "The ticket price includes:",
+    "ticket_includes": [
+      "the unique ball experience in elegant surroundings",
+      "cloakroom fee",
+      "a glass of sparkly as a welcome toast",
+      "a selection of cocktail snacks from a buffet",
+      "historical and fantastical dances (with a dance leader to guide you)",
+      "several themed performances throughout the evening",
+      "nightclub style dancing and informal mingling in the later hours",
+      "photos by the official event photographer",
+      "photobooth / -wall for your own photos"
+    ],
+    "ticket_vat_note": "Finnish VAT and Lippu.light ticket sales service fee included.",
+    "bar_note": "There is a cash bar serving both alcoholic and non-alcoholic beverages at the venue.",
+    "good_to_know_heading": "Good to know",
+    "good_to_know_1": "The cocktail snacks we will be serving are more in the style of a light snack rather than a hearty meal. We therefore advise enjoying a proper dinner before the ball.",
+    "good_to_know_2": "The main doors to the venue will open at 17.45. Tickets are checked digitally at the entrance. The main doors will be locked once the event's programme begins. If you arrive late, you can enter via the side entrance — the door staff will check your ticket there.",
+    "side_events_heading": "Additional programme",
+    "side_events_body": "We will keep you updated about a separate dance workshop before the event, which will have a small attendance fee. We are also working on offering extra programme on Friday 4 September with the help of our collaborators. Participating in these activities is entirely voluntary. We will share more details as plans are confirmed.",
+    "accessibility_heading": "Accessibility and inclusivity",
+    "accessibility_1": "The event venue is accessible for people with physical disabilities. There is an elevator to all floors and a wheelchair accessible ramp at the side entrance.",
+    "accessibility_2": "Many guests will be wearing long, formal gowns and even outfits with trains. Please be mindful of your surroundings when moving about the venue, so that everyone can move safely.",
+    "accessibility_3": "The event is, by its core values, inclusive and equal. Everyone is welcome to be who they are — or who they choose to portray during the ball — exactly as they are. The venue's restrooms will be marked gender neutral for the evening.",
+    "accessibility_4": "Each and every guest has the right to remain untouched and we do not accept any inappropriate, harmful, or discriminative conduct. Always make sure it is ok to touch or take a photo, and do not assume anything about anyone.",
+    "accessibility_5": "There is a named contact person for any harassment concerns. Good manners and consideration for others ensure a wonderful evening for everyone.",
+    "dress_code_heading": "Dress code and outfit ideas",
+    "dress_code_1": "The dress code is fantasy-themed formal attire.",
+    "dress_code_2": "Draw inspiration from fantasy and fairy-tale worlds — films, series, and the styles described in novels. The theme of the River Court Autumn Ball is a generic fantasy court, so interpretations can be wonderfully varied.",
+    "dress_code_3": "Think long ball gowns, historical formal wear, elven ears, elaborate jewellery, wings, horns, or dramatic make-up effects. But the theme is broad — there is room for vampires, merfolk, hobbits, and the occasional ordinary human too.",
+    "dress_code_4": "At its simplest, you might hire a ball gown and dress it up with jewellery or flowers — your character, your story. What matters most to us is that you can dance and celebrate comfortably all evening.",
+    "dress_code_5": "When planning your outfit, give some thought to footwear too. We hope festivity shows from head to toe, but you are also here to dance through the night.",
+    "inspiration_heading": "Inspiration",
+    "inspiration_body": "For outfit ideas and a feel for the atmosphere, take a look at some international events. Follow for example these accounts on Instagram:",
+    "inspiration_accounts": "@faetedfantasy · @mysticfateuk · @acourtofrainandrevelry · @metbymoonlightevents · @gauntletsandgownsevents · @lesbaldeslegendes · @faeriewayevents",
+    "getting_there_heading": "Getting to Turku and the venue",
+    "getting_there_1": "Turku is easy to reach by public transport. Both the main railway station and the bus terminal are a short walk from the city centre, where the venue is located at Eskelinkatu 5.",
+    "getting_there_2": "International guests can fly to Helsinki or Turku. There are also ferry connections from Stockholm to Turku.",
+    "getting_there_3": "If you are arriving by car, street parking is available near the venue. The underground car parks P-Louhi and Toriparkki in the city centre are open around the clock.",
+    "accommodation_heading": "Accommodation",
+    "accommodation_intro": "Several hotels are within walking distance of the venue. The closest, Solo Sokos Hotel Turun Seurahuone, is directly across the street.",
+    "accommodation_sokos_deal": "A block of 20 hotel rooms has been reserved at discounted rates for guests of the River Court Autumn Ball for the night of 5–6 September 2026. Rates are 125 € (single) and 145 € (double), valid for bookings made before 29 August 2026 at 16:30, subject to availability. Please quote the code \"Jokihovin syystanssiaiset\" when booking, or use the online booking code BJOKIHOVI.",
+    "accommodation_other": "Radisson Blu Marina Palace is a few minutes' walk away. Other options in the city centre include Scandic, Sokos, and Omena chain hotels, as well as smaller boutique hotels — nearly all within a few minutes' walk of the venue."
   }
 }

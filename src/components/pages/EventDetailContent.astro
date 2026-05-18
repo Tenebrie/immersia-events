@@ -1,9 +1,11 @@
 ---
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import Sparkle from '../Sparkle.astro';
 import type { Locale } from '../../utils/i18n';
 import { t, localePath } from '../../utils/i18n';
-import { render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import fiTranslations from '../../locales/fi.json';
+import enTranslations from '../../locales/en.json';
 
 interface Props {
   event: CollectionEntry<'events'>;
@@ -15,21 +17,26 @@ const { Content } = await render(event);
 
 const title = locale === 'fi' ? event.data.titleFi : event.data.titleEn;
 const dressCode = locale === 'fi' ? event.data.dressCodeFi : event.data.dressCodeEn;
+const { ticketUrl, bodyEn } = event.data;
+
+// Typed access to the ticket includes array
+const translations = locale === 'fi' ? fiTranslations : enTranslations;
+const ticketIncludes: string[] = translations.event_detail.ticket_includes;
+
 ---
 
 <div class="pt-24 pb-32 px-6">
   <div class="max-w-2xl mx-auto">
 
-    <!-- Back link -->
     <a
-      href={localePath(locale, '/events')}
+      href={localePath(locale, '/')}
       class="text-xs tracking-[0.12em] uppercase text-brand-cream-muted hover:text-brand-cream transition-colors inline-flex items-center gap-2 mb-12"
     >
       {t(locale, 'events.details.back')}
     </a>
 
     <!-- Event header -->
-    <header class="mb-12">
+    <header class="mb-10">
       <div class="flex items-center gap-3 mb-5">
         <Sparkle size={10} class="text-brand-gold/60" />
         <span class="text-xs tracking-[0.15em] uppercase text-brand-cream-muted">
@@ -37,90 +44,192 @@ const dressCode = locale === 'fi' ? event.data.dressCodeFi : event.data.dressCod
         </span>
       </div>
 
-      <h1 class="font-display text-4xl md:text-5xl text-brand-cream leading-tight tracking-wide mb-4">
+      <h1 class="font-display text-4xl md:text-5xl text-brand-cream leading-tight tracking-wide mb-8">
         {title}
       </h1>
 
-      <div class="flex flex-col gap-3 mt-8 border-t border-brand-gold/15 pt-8">
-        <div class="grid grid-cols-[7rem_1fr] gap-2 text-sm">
+      <div class="flex flex-col gap-3 border-t border-brand-gold/15 pt-8">
+        <div class="grid grid-cols-[7rem_1fr] gap-2">
           <span class="text-xs tracking-[0.12em] uppercase text-brand-gold/70 pt-0.5">
             {t(locale, 'events.details.when')}
           </span>
-          <span class="text-brand-cream/80">{event.data.date}</span>
+          <span class="text-sm text-brand-cream/80">{event.data.date}</span>
         </div>
-        <div class="grid grid-cols-[7rem_1fr] gap-2 text-sm">
+        <div class="grid grid-cols-[7rem_1fr] gap-2">
           <span class="text-xs tracking-[0.12em] uppercase text-brand-gold/70 pt-0.5">
             {t(locale, 'events.details.where')}
           </span>
-          <span class="text-brand-cream/80">{event.data.venue}</span>
+          <span class="text-sm text-brand-cream/80">{event.data.venue}</span>
         </div>
       </div>
     </header>
 
-    <div class="section-rule" aria-hidden="true">
-      <Sparkle size={10} class="text-brand-gold" />
-    </div>
+    <!-- Ticket CTA -->
 
-    <!-- Body -->
-    <section aria-labelledby="event-body-heading">
+    <!-- Main body -->
+    <section aria-labelledby="event-body-heading" class="mb-12">
       <h2 id="event-body-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
         {t(locale, 'events.details.what_to_expect')}
       </h2>
-      <div class="prose text-brand-cream/75 leading-loose space-y-4 [&_p]:mb-4">
-        <Content />
+      <div class="text-brand-cream/75 leading-loose space-y-4 [&_p]:mb-0">
+        {locale === 'fi' ? (
+          <Content />
+        ) : bodyEn ? (
+          bodyEn.split('\n\n').map((para) => <p>{para}</p>)
+        ) : (
+          <Content />
+        )}
       </div>
     </section>
 
+    <!-- What is a fantasy ball? -->
+    <section aria-labelledby="what-is-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="what-is-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+        {t(locale, 'event_detail.what_is_heading')}
+      </h2>
+      <div class="space-y-4 text-brand-cream/70 leading-loose">
+        <p>{t(locale, 'event_detail.what_is_body_1')}</p>
+        <p>{t(locale, 'event_detail.what_is_body_2')}</p>
+        <p>{t(locale, 'event_detail.what_is_body_3')}</p>
+      </div>
+    </section>
+
+    <!-- Ticket includes -->
+    <section aria-labelledby="includes-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="includes-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+        {t(locale, 'event_detail.ticket_includes_heading')}
+      </h2>
+      <ul class="space-y-3 mb-4" role="list">
+        {ticketIncludes.map((item) => (
+          <li class="flex items-start gap-3 text-sm text-brand-cream/75">
+            <Sparkle size={10} class="text-brand-gold/60 mt-1 shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-xs text-brand-cream/40 mt-4">{t(locale, 'event_detail.ticket_vat_note')}</p>
+      <p class="text-sm text-brand-cream/60 mt-3 italic">{t(locale, 'event_detail.bar_note')}</p>
+    </section>
+
+    <!-- Dress code -->
     {dressCode && (
+      <section aria-labelledby="dresscode-heading" class="mb-12">
+        <div class="section-rule" aria-hidden="true">
+          <Sparkle size={10} class="text-brand-gold" />
+        </div>
+        <h2 id="dresscode-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+          {t(locale, 'event_detail.dress_code_heading')}
+        </h2>
+        <div class="space-y-4 text-brand-cream/70 leading-loose">
+          <p>{t(locale, 'event_detail.dress_code_1')}</p>
+          <p>{t(locale, 'event_detail.dress_code_2')}</p>
+          <p>{t(locale, 'event_detail.dress_code_3')}</p>
+          <p>{t(locale, 'event_detail.dress_code_4')}</p>
+          <p>{t(locale, 'event_detail.dress_code_5')}</p>
+        </div>
+        <div class="mt-8 pt-6 border-t border-brand-gold/10">
+          <h3 class="font-display text-lg text-brand-cream tracking-wide mb-3">
+            {t(locale, 'event_detail.inspiration_heading')}
+          </h3>
+          <p class="text-sm text-brand-cream/60 mb-3">{t(locale, 'event_detail.inspiration_body')}</p>
+          <p class="text-xs text-brand-cream-muted tracking-wide">{t(locale, 'event_detail.inspiration_accounts')}</p>
+        </div>
+      </section>
+    )}
+
+    <!-- Good to know -->
+    <section aria-labelledby="good-to-know-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="good-to-know-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+        {t(locale, 'event_detail.good_to_know_heading')}
+      </h2>
+      <div class="space-y-4 text-brand-cream/70 leading-loose">
+        <p>{t(locale, 'event_detail.good_to_know_1')}</p>
+        <p>{t(locale, 'event_detail.good_to_know_2')}</p>
+      </div>
+    </section>
+
+    <!-- Additional programme -->
+    <section aria-labelledby="side-events-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="side-events-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-4">
+        {t(locale, 'event_detail.side_events_heading')}
+      </h2>
+      <p class="text-brand-cream/70 leading-loose">{t(locale, 'event_detail.side_events_body')}</p>
+    </section>
+
+    <!-- Accessibility -->
+    <section aria-labelledby="accessibility-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="accessibility-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+        {t(locale, 'event_detail.accessibility_heading')}
+      </h2>
+      <div class="space-y-4 text-brand-cream/70 leading-loose">
+        {(['1', '2', '3', '4', '5'] as const).map((n) => (
+          <p>{t(locale, `event_detail.accessibility_${n}`)}</p>
+        ))}
+      </div>
+    </section>
+
+    <!-- Getting there -->
+    <section aria-labelledby="getting-there-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="getting-there-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+        {t(locale, 'event_detail.getting_there_heading')}
+      </h2>
+      <div class="space-y-4 text-brand-cream/70 leading-loose">
+        <p>{t(locale, 'event_detail.getting_there_1')}</p>
+        <p>{t(locale, 'event_detail.getting_there_2')}</p>
+        <p>{t(locale, 'event_detail.getting_there_3')}</p>
+      </div>
+    </section>
+
+    <!-- Accommodation -->
+    <section aria-labelledby="accommodation-heading" class="mb-12">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={10} class="text-brand-gold" />
+      </div>
+      <h2 id="accommodation-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
+        {t(locale, 'event_detail.accommodation_heading')}
+      </h2>
+      <div class="space-y-4 text-brand-cream/70 leading-loose">
+        <p>{t(locale, 'event_detail.accommodation_intro')}</p>
+        <div class="bg-brand-purple border border-brand-gold/20 p-5 my-4">
+          <p class="text-sm text-brand-cream/80 leading-relaxed">
+            {t(locale, 'event_detail.accommodation_sokos_deal')}
+          </p>
+        </div>
+        <p>{t(locale, 'event_detail.accommodation_other')}</p>
+      </div>
+    </section>
+
+    <!-- Ticket CTA at bottom -->
+    {ticketUrl && (
       <>
         <div class="section-rule" aria-hidden="true">
           <Sparkle size={10} class="text-brand-gold" />
         </div>
-        <section aria-labelledby="dresscode-heading">
-          <h2 id="dresscode-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-4">
-            {t(locale, 'events.details.dress_code')}
-          </h2>
-          <p class="text-brand-cream/70 leading-loose">{dressCode}</p>
-        </section>
+        <div class="text-center py-6">
+          <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            {t(locale, 'events.details.tickets_cta')}
+          </a>
+        </div>
       </>
     )}
-
-    <div class="section-rule" aria-hidden="true">
-      <Sparkle size={10} class="text-brand-gold" />
-    </div>
-
-    <!-- FAQ -->
-    <section aria-labelledby="faq-heading">
-      <h2 id="faq-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-8">
-        {t(locale, 'events.details.faq_heading')}
-      </h2>
-      <dl class="space-y-6">
-        {(['1', '2'] as const).map((n) => (
-          <div class="border-b border-brand-gold/10 pb-6">
-            <dt class="font-display text-lg text-brand-cream mb-2">
-              {t(locale, `events.details.faq_q${n}`)}
-            </dt>
-            <dd class="text-sm text-brand-cream/65 leading-relaxed">
-              {t(locale, `events.details.faq_a${n}`)}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-
-    <div class="section-rule" aria-hidden="true">
-      <Sparkle size={10} class="text-brand-gold" />
-    </div>
-
-    <!-- Tickets -->
-    <section aria-labelledby="tickets-heading" class="text-center py-6">
-      <h2 id="tickets-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
-        {t(locale, 'events.details.tickets_heading')}
-      </h2>
-      <p class="text-brand-cream/60 text-sm leading-relaxed italic">
-        {t(locale, 'events.details.tickets_cta')}
-      </p>
-    </section>
 
   </div>
 </div>

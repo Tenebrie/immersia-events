@@ -7,7 +7,7 @@ type TranslationData = typeof fiTranslations;
 
 const translations: Record<Locale, TranslationData> = {
   fi: fiTranslations,
-  en: enTranslations as TranslationData,
+  en: enTranslations as unknown as TranslationData,
 };
 
 export function t(locale: Locale, key: string): string {

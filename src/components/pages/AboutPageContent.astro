@@ -21,9 +21,10 @@ const { locale } = Astro.props;
       </h1>
     </header>
 
-    <div class="space-y-6 text-brand-cream/70 leading-loose mb-16">
+    <div class="space-y-6 text-brand-cream/70 leading-loose mb-10">
       <p>{t(locale, 'about.body1')}</p>
       <p>{t(locale, 'about.body2')}</p>
+      <p class="text-brand-cream/40 text-sm">{t(locale, 'about.logo_credit')}</p>
     </div>
 
     <div class="section-rule" aria-hidden="true">
