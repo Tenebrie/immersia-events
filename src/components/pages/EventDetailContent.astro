@@ -1,5 +1,4 @@
 ---
-import { render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import Sparkle from '../Sparkle.astro';
 import type { Locale } from '../../utils/i18n';
@@ -13,16 +12,18 @@ interface Props {
 }
 const { event, locale } = Astro.props;
 
-const { Content } = await render(event);
-
 const title = locale === 'fi' ? event.data.titleFi : event.data.titleEn;
+const date = locale === 'fi' ? event.data.dateFi : event.data.dateEn;
 const dressCode = locale === 'fi' ? event.data.dressCodeFi : event.data.dressCodeEn;
-const { ticketUrl, bodyEn } = event.data;
+const { ticketUrl } = event.data;
 
-// Typed access to the ticket includes array
 const translations = locale === 'fi' ? fiTranslations : enTranslations;
 const ticketIncludes: string[] = translations.event_detail.ticket_includes;
 
+function tChecked(key: string): string | null {
+  const value = t(locale, key);
+  return value !== key && value ? value : null;
+}
 ---
 
 <div class="pt-24 pb-32 px-6">
@@ -37,12 +38,6 @@ const ticketIncludes: string[] = translations.event_detail.ticket_includes;
 
     <!-- Event header -->
     <header class="mb-10">
-      <div class="flex items-center gap-3 mb-5">
-        <Sparkle size={10} class="text-brand-gold/60" />
-        <span class="text-xs tracking-[0.15em] uppercase text-brand-cream-muted">
-          {t(locale, 'events.title')}
-        </span>
-      </div>
 
       <h1 class="font-display text-4xl md:text-5xl text-brand-cream leading-tight tracking-wide mb-8">
         {title}
@@ -53,7 +48,7 @@ const ticketIncludes: string[] = translations.event_detail.ticket_includes;
           <span class="text-xs tracking-[0.12em] uppercase text-brand-gold/70 pt-0.5">
             {t(locale, 'events.details.when')}
           </span>
-          <span class="text-sm text-brand-cream/80">{event.data.date}</span>
+          <span class="text-sm text-brand-cream/80">{date}</span>
         </div>
         <div class="grid grid-cols-[7rem_1fr] gap-2">
           <span class="text-xs tracking-[0.12em] uppercase text-brand-gold/70 pt-0.5">
@@ -64,21 +59,16 @@ const ticketIncludes: string[] = translations.event_detail.ticket_includes;
       </div>
     </header>
 
-    <!-- Ticket CTA -->
-
     <!-- Main body -->
     <section aria-labelledby="event-body-heading" class="mb-12">
       <h2 id="event-body-heading" class="font-display text-2xl text-brand-cream tracking-wide mb-6">
         {t(locale, 'events.details.what_to_expect')}
       </h2>
-      <div class="text-brand-cream/75 leading-loose space-y-4 [&_p]:mb-0">
-        {locale === 'fi' ? (
-          <Content />
-        ) : bodyEn ? (
-          bodyEn.split('\n\n').map((para) => <p>{para}</p>)
-        ) : (
-          <Content />
-        )}
+      <div class="text-brand-cream/75 leading-loose space-y-4">
+        {(['1', '2', '3', '4', '5'] as const).map((n) => {
+          const text = tChecked(`event_detail.description_${n}`);
+          return text ? <p>{text}</p> : null;
+        })}
       </div>
     </section>
 
@@ -127,11 +117,10 @@ const ticketIncludes: string[] = translations.event_detail.ticket_includes;
           {t(locale, 'event_detail.dress_code_heading')}
         </h2>
         <div class="space-y-4 text-brand-cream/70 leading-loose">
-          <p>{t(locale, 'event_detail.dress_code_1')}</p>
-          <p>{t(locale, 'event_detail.dress_code_2')}</p>
-          <p>{t(locale, 'event_detail.dress_code_3')}</p>
-          <p>{t(locale, 'event_detail.dress_code_4')}</p>
-          <p>{t(locale, 'event_detail.dress_code_5')}</p>
+          {(['1', '2', '3', '4', '5', '6'] as const).map((n) => {
+            const text = tChecked(`event_detail.dress_code_${n}`);
+            return text ? <p>{text}</p> : null;
+          })}
         </div>
         <div class="mt-8 pt-6 border-t border-brand-gold/10">
           <h3 class="font-display text-lg text-brand-cream tracking-wide mb-3">
@@ -192,9 +181,10 @@ const ticketIncludes: string[] = translations.event_detail.ticket_includes;
         {t(locale, 'event_detail.getting_there_heading')}
       </h2>
       <div class="space-y-4 text-brand-cream/70 leading-loose">
-        <p>{t(locale, 'event_detail.getting_there_1')}</p>
-        <p>{t(locale, 'event_detail.getting_there_2')}</p>
-        <p>{t(locale, 'event_detail.getting_there_3')}</p>
+        {(['1', '2', '3', '4'] as const).map((n) => {
+          const text = tChecked(`event_detail.getting_there_${n}`);
+          return text ? <p>{text}</p> : null;
+        })}
       </div>
     </section>
 
@@ -208,12 +198,16 @@ const ticketIncludes: string[] = translations.event_detail.ticket_includes;
       </h2>
       <div class="space-y-4 text-brand-cream/70 leading-loose">
         <p>{t(locale, 'event_detail.accommodation_intro')}</p>
-        <div class="bg-brand-purple border border-brand-gold/20 p-5 my-4">
-          <p class="text-sm text-brand-cream/80 leading-relaxed">
-            {t(locale, 'event_detail.accommodation_sokos_deal')}
-          </p>
+        <div class="bg-brand-purple border border-brand-gold/20 p-5 my-4 space-y-3">
+          {t(locale, 'event_detail.accommodation_sokos_deal').split('\n\n').map((para) => (
+            <p class="text-sm text-brand-cream/80 leading-relaxed whitespace-pre-line">{para}</p>
+          ))}
         </div>
-        <p>{t(locale, 'event_detail.accommodation_other')}</p>
+        <div class="space-y-4">
+          {t(locale, 'event_detail.accommodation_other').split('\n\n').map((para) => (
+            <p class="whitespace-pre-line">{para}</p>
+          ))}
+        </div>
       </div>
     </section>
 

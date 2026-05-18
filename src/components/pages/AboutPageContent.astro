@@ -2,11 +2,14 @@
 import Sparkle from '../Sparkle.astro';
 import type { Locale } from '../../utils/i18n';
 import { t } from '../../utils/i18n';
+import fiTranslations from '../../locales/fi.json';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+
+const teamMembers: string[] = locale === 'fi' ? fiTranslations.about.team_members : [];
 ---
 
 <div class="pt-24 pb-32 px-6">
@@ -26,6 +29,25 @@ const { locale } = Astro.props;
       <p>{t(locale, 'about.body2')}</p>
       <p class="text-brand-cream/40 text-sm">{t(locale, 'about.logo_credit')}</p>
     </div>
+
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={10} class="text-brand-gold" />
+    </div>
+
+    <div class="space-y-6 text-brand-cream/70 leading-loose mb-10">
+      <p>{t(locale, 'about.body3')}</p>
+      <p>{t(locale, 'about.body4')}</p>
+      <p>{t(locale, 'about.body5')}</p>
+      <p>{t(locale, 'about.body6')}</p>
+    </div>
+
+    {teamMembers.length > 0 && (
+      <ul class="space-y-1 mb-10" role="list">
+        {teamMembers.map((name) => (
+          <li class="text-brand-cream/60 text-sm">{name}</li>
+        ))}
+      </ul>
+    )}
 
     <div class="section-rule" aria-hidden="true">
       <Sparkle size={10} class="text-brand-gold" />

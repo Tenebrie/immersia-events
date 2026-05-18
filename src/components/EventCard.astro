@@ -1,7 +1,7 @@
 ---
 import Sparkle from './Sparkle.astro';
 import type { Locale } from '../utils/i18n';
-import { t, localePath } from '../utils/i18n';
+import { t } from '../utils/i18n';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -11,8 +11,8 @@ interface Props {
 
 const { event, locale } = Astro.props;
 const title = locale === 'fi' ? event.data.titleFi : event.data.titleEn;
-const slug = event.id;
-const href = localePath(locale, `/events/${slug}`);
+const date = locale === 'fi' ? event.data.dateFi : event.data.dateEn;
+const href = locale === 'fi' ? event.data.urlFi : event.data.urlEn;
 const { ticketUrl } = event.data;
 ---
 
@@ -22,7 +22,7 @@ const { ticketUrl } = event.data;
   <div class="flex items-center gap-2 mb-4">
     <Sparkle size={10} class="text-brand-gold/60" />
     <time class="text-xs tracking-[0.15em] uppercase text-brand-cream-muted">
-      {event.data.date}
+      {date}
     </time>
   </div>
 

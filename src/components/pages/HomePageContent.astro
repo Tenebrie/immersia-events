@@ -84,7 +84,7 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
           </a>
         )}
         <a
-          href={featuredEvent ? localePath(locale, `/events/${featuredEvent.id}`) : localePath(locale, '/events')}
+          href={featuredEvent ? (locale === 'fi' ? featuredEvent.data.urlFi : featuredEvent.data.urlEn) : localePath(locale, '/events')}
           class:list={[
             featuredEvent?.data.ticketUrl
               ? 'text-sm tracking-[0.12em] uppercase text-brand-cream/60 hover:text-brand-cream transition-colors self-center'

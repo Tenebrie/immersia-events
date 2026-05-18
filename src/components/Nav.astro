@@ -167,11 +167,18 @@ const enHref = `/en${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
 </header>
 
 <style is:global>
+  #site-nav {
+    background-color: rgba(26, 12, 51, 0.00);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px); 
+    border-bottom: 1px solid transparent;
+  }
   #site-nav.nav-scrolled {
     background-color: rgba(26, 12, 51, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(201, 169, 106, 0.1);
+    transition: all 0.3s ease-in-out;
   }
 </style>
 
