@@ -1,5 +1,4 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import Sparkle from '../Sparkle.astro';
 import type { Locale } from '../../utils/i18n';
 import { t, localePath } from '../../utils/i18n';
@@ -7,15 +6,11 @@ import fiTranslations from '../../locales/fi.json';
 import enTranslations from '../../locales/en.json';
 
 interface Props {
-  event: CollectionEntry<'events'>;
   locale: Locale;
 }
-const { event, locale } = Astro.props;
+const { locale } = Astro.props;
 
-const title = locale === 'fi' ? event.data.titleFi : event.data.titleEn;
-const date = locale === 'fi' ? event.data.dateFi : event.data.dateEn;
-const dressCode = locale === 'fi' ? event.data.dressCodeFi : event.data.dressCodeEn;
-const { ticketUrl } = event.data;
+const TICKET_URL = 'https://www.eventim-light.com/fi/a/696f92258d6c8567308d2023/e/697689789778dd35db2384fc';
 
 const translations = locale === 'fi' ? fiTranslations : enTranslations;
 const ticketIncludes: string[] = translations.event_detail.ticket_includes;
@@ -40,7 +35,7 @@ function tChecked(key: string): string | null {
     <header class="mb-10">
 
       <h1 class="font-display text-4xl md:text-5xl text-brand-cream leading-tight tracking-wide mb-8">
-        {title}
+        {t(locale, 'event_detail.title')}
       </h1>
 
       <div class="flex flex-col gap-3 border-t border-brand-gold/15 pt-8">
@@ -48,13 +43,13 @@ function tChecked(key: string): string | null {
           <span class="text-xs tracking-[0.12em] uppercase text-brand-gold/70 pt-0.5">
             {t(locale, 'events.details.when')}
           </span>
-          <span class="text-sm text-brand-cream/80">{date}</span>
+          <span class="text-sm text-brand-cream/80">{t(locale, 'event_detail.date')}</span>
         </div>
         <div class="grid grid-cols-[7rem_1fr] gap-2">
           <span class="text-xs tracking-[0.12em] uppercase text-brand-gold/70 pt-0.5">
             {t(locale, 'events.details.where')}
           </span>
-          <span class="text-sm text-brand-cream/80">{event.data.venue}</span>
+          <span class="text-sm text-brand-cream/80">{t(locale, 'event_detail.venue')}</span>
         </div>
       </div>
     </header>
@@ -108,8 +103,7 @@ function tChecked(key: string): string | null {
     </section>
 
     <!-- Dress code -->
-    {dressCode && (
-      <section aria-labelledby="dresscode-heading" class="mb-12">
+    <section aria-labelledby="dresscode-heading" class="mb-12">
         <div class="section-rule" aria-hidden="true">
           <Sparkle size={10} class="text-brand-gold" />
         </div>
@@ -130,7 +124,6 @@ function tChecked(key: string): string | null {
           <p class="text-xs text-brand-cream-muted tracking-wide">{t(locale, 'event_detail.inspiration_accounts')}</p>
         </div>
       </section>
-    )}
 
     <!-- Good to know -->
     <section aria-labelledby="good-to-know-heading" class="mb-12">
@@ -212,18 +205,14 @@ function tChecked(key: string): string | null {
     </section>
 
     <!-- Ticket CTA at bottom -->
-    {ticketUrl && (
-      <>
-        <div class="section-rule" aria-hidden="true">
-          <Sparkle size={10} class="text-brand-gold" />
-        </div>
-        <div class="text-center py-6">
-          <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
-            {t(locale, 'events.details.tickets_cta')}
-          </a>
-        </div>
-      </>
-    )}
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={10} class="text-brand-gold" />
+    </div>
+    <div class="text-center py-6">
+      <a href={TICKET_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">
+        {t(locale, 'events.details.tickets_cta')}
+      </a>
+    </div>
 
   </div>
 </div>

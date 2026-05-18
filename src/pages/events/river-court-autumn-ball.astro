@@ -1,12 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EventDetailContent from '../../components/pages/EventDetailContent.astro';
-
-const events = await getCollection('events');
-const event = events.find((e) => e.id === 'first-evening')!;
-const title = event.data.titleFi;
+import { t } from '../../utils/i18n';
 ---
-<BaseLayout locale="fi" title={title}>
-  <EventDetailContent event={event} locale="fi" />
+<BaseLayout locale="fi" title={t('fi', 'event_detail.title')}>
+  <EventDetailContent locale="fi" />
 </BaseLayout>
