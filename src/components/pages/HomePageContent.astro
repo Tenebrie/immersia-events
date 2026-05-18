@@ -34,54 +34,66 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
 
 <!-- Hero -->
 <section
-  class="relative min-h-screen flex items-center justify-center"
+  class="relative min-h-screen flex items-end"
   style={heroImage
     ? `background-image: url('${heroImage.src}'); background-attachment: fixed; background-size: cover; background-position: center;`
     : 'background: linear-gradient(135deg, #1a0c33 0%, #2a1248 50%, #3d1f63 100%);'}
   aria-labelledby="hero-heading"
 >
-  <!-- Dark overlay for text legibility -->
+  <!-- Bottom gradient: dark floor for the type -->
   <div
     class="absolute inset-0"
-    style="background: linear-gradient(to bottom, rgba(26,12,51,0.55) 0%, rgba(26,12,51,0.25) 40%, rgba(26,12,51,0.65) 100%);"
+    style="background: linear-gradient(to top, rgba(10,5,20,0.92), rgba(15,8,28,0.6) 40%, transparent 65%);"
     aria-hidden="true"
   ></div>
-  <!-- Content -->
-  <div class="relative z-10 text-center px-6 py-24 max-w-3xl mx-auto">
+  <!-- Top gradient: nav legibility without a hard bar -->
+  <div
+    class="absolute top-0 left-0 right-0 pointer-events-none"
+    style="height: 160px; background: linear-gradient(to bottom, rgba(20,10,30,0.6), transparent);"
+    aria-hidden="true"
+  ></div>
+  <!-- Content — left-aligned in content gutter -->
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 pb-20 pt-8">
+    <div class="max-w-lg">
 
-
-    <h1
-      id="hero-heading"
-      class="font-display text-4xl md:text-6xl lg:text-7xl text-brand-cream tracking-wider leading-tight mb-6"
-    >
-      {t(locale, 'home.hero.title')}
-    </h1>
-
-    <p class="text-base md:text-lg text-brand-cream/70 leading-relaxed max-w-xl mx-auto mb-10">
-      {t(locale, 'home.hero.subtitle')}
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      {featuredEvent?.data.ticketUrl && (
-        <a
-          href={featuredEvent.data.ticketUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary"
-        >
-          {t(locale, 'home.hero.tickets_cta')}
-        </a>
-      )}
-      <a
-        href={featuredEvent ? localePath(locale, `/events/${featuredEvent.id}`) : localePath(locale, '/events')}
-        class:list={[
-          featuredEvent?.data.ticketUrl
-            ? 'text-sm tracking-[0.12em] uppercase text-brand-cream/60 hover:text-brand-cream transition-colors'
-            : 'btn-primary',
-        ]}
+      <p
+        class="text-xs tracking-[0.25em] uppercase mb-5"
+        style="color: var(--color-brand-gold); font-variant-caps: small-caps;"
+        aria-hidden="true"
       >
-        {t(locale, 'home.hero.cta')}
-      </a>
+        {t(locale, 'home.hero.eyebrow')}
+      </p>
+
+      <h1
+        id="hero-heading"
+        class="font-display text-4xl md:text-6xl lg:text-7xl text-brand-cream tracking-wider leading-tight mb-8 whitespace-nowrap"
+        style="text-shadow: 0 2px 24px rgba(15,5,25,0.6);"
+      >
+        {t(locale, 'home.hero.title')}
+      </h1>
+
+      <div class="flex flex-col sm:flex-row items-start gap-4">
+        {featuredEvent?.data.ticketUrl && (
+          <a
+            href={featuredEvent.data.ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-tickets"
+          >
+            {t(locale, 'home.hero.tickets_cta')}
+          </a>
+        )}
+        <a
+          href={featuredEvent ? localePath(locale, `/events/${featuredEvent.id}`) : localePath(locale, '/events')}
+          class:list={[
+            featuredEvent?.data.ticketUrl
+              ? 'text-sm tracking-[0.12em] uppercase text-brand-cream/60 hover:text-brand-cream transition-colors self-center'
+              : 'btn-primary',
+          ]}
+        >
+          {t(locale, 'home.hero.cta')}
+        </a>
+      </div>
     </div>
   </div>
 </section>

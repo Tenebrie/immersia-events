@@ -97,6 +97,31 @@
     outline-offset: 3px;
   }
 
+  .btn-tickets {
+    display: inline-block;
+    background-color: var(--color-brand-gold);
+    color: var(--color-brand-purple-dark);
+    border: 1px solid var(--color-brand-gold);
+    padding: 0.75rem 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-tickets:hover {
+    background-color: transparent;
+    color: var(--color-brand-gold);
+  }
+
+  .btn-tickets:focus-visible {
+    outline: 2px solid var(--color-brand-gold);
+    outline-offset: 3px;
+  }
+
   .section-rule {
     display: flex;
     align-items: center;

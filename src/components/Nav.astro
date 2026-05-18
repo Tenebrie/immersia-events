@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import { Menu } from 'lucide-astro';
+import { Globe, Menu } from 'lucide-astro';
 import logoImg from '../assets/logo.svg';
 import type { Locale } from '../utils/i18n';
-import { t, localePath, getAlternatePath } from '../utils/i18n';
+import { t, localePath } from '../utils/i18n';
 
 interface Props {
   locale: Locale;
@@ -25,23 +25,25 @@ function isActive(path: string): boolean {
   return currentPath.startsWith(full);
 }
 
-const alternatePath = getAlternatePath(locale, currentPath);
+const pathWithoutLocale = locale === 'en' ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+const fiHref = pathWithoutLocale;
+const enHref = `/en${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
 ---
 
 <header>
   <nav
     id="site-nav"
     aria-label={locale === 'fi' ? 'Päänavigaatio' : 'Main navigation'}
-    class="fixed top-0 left-0 right-0 z-50 bg-brand-purple/90 backdrop-blur-sm border-b border-brand-gold/10"
+    class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
   >
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
 
       <a
         href={localePath(locale, '/')}
         aria-label={t(locale, 'meta.site_name')}
         class="shrink-0"
       >
-        <Image src={logoImg} alt="Immersia Events" height={56} width={56} class="h-14 w-auto" />
+        <Image src={logoImg} alt="Immersia Events" height={80} width={80} class="h-16 md:h-20 w-auto" />
       </a>
 
       <!-- Desktop navigation -->
@@ -62,17 +64,48 @@ const alternatePath = getAlternatePath(locale, currentPath);
             </a>
           </li>
         ))}
-      </ul>
 
-      <div class="hidden md:flex items-center">
-        <a
-          href={alternatePath}
-          aria-label={t(locale, 'nav.lang_switch_label')}
-          class="text-xs tracking-[0.15em] uppercase text-brand-gold/70 hover:text-brand-gold transition-colors"
-        >
-          {t(locale, 'nav.lang_switch')}
-        </a>
-      </div>
+        <!-- Language switcher as last nav item -->
+        <li class="relative">
+          <button
+            id="lang-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            class="flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-brand-cream/80 hover:text-brand-cream transition-colors"
+            aria-label={t(locale, 'nav.lang_switch_label')}
+          >
+            <Globe size={13} aria-hidden="true" />
+            <span>{locale.toUpperCase()}</span>
+          </button>
+          <div
+            id="lang-dropdown"
+            hidden
+            role="listbox"
+            class="absolute right-0 top-full mt-2 min-w-[5rem] border border-brand-gold/20 py-1"
+            style="background: rgba(20,10,30,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);"
+          >
+            <a
+              href={fiHref}
+              role="option"
+              aria-selected={locale === 'fi'}
+              class:list={[
+                'block px-4 py-2 text-xs tracking-[0.15em] uppercase transition-colors',
+                locale === 'fi' ? 'text-brand-gold' : 'text-brand-cream/70 hover:text-brand-cream',
+              ]}
+            >FI</a>
+            <a
+              href={enHref}
+              role="option"
+              aria-selected={locale === 'en'}
+              class:list={[
+                'block px-4 py-2 text-xs tracking-[0.15em] uppercase transition-colors',
+                locale === 'en' ? 'text-brand-gold' : 'text-brand-cream/70 hover:text-brand-cream',
+              ]}
+            >EN</a>
+          </div>
+        </li>
+      </ul>
 
       <!-- Mobile menu button -->
       <button
@@ -91,7 +124,8 @@ const alternatePath = getAlternatePath(locale, currentPath);
     <div
       id="mobile-menu"
       hidden
-      class="md:hidden border-t border-brand-gold/10 bg-brand-purple"
+      class="md:hidden border-t border-brand-gold/10"
+      style="background: rgba(20,10,30,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);"
     >
       <ul class="px-6 py-4 flex flex-col gap-4" role="list">
         {navLinks.map(({ key, path }) => (
@@ -110,35 +144,66 @@ const alternatePath = getAlternatePath(locale, currentPath);
             </a>
           </li>
         ))}
-        <li class="pt-2 border-t border-brand-gold/10">
+        <li class="pt-2 border-t border-brand-gold/10 flex items-center gap-4">
           <a
-            href={alternatePath}
-            aria-label={t(locale, 'nav.lang_switch_label')}
-            class="text-xs tracking-[0.15em] uppercase text-brand-gold/70 hover:text-brand-gold transition-colors"
-          >
-            {t(locale, 'nav.lang_switch')}
-          </a>
+            href={fiHref}
+            class:list={[
+              'text-xs tracking-[0.15em] uppercase transition-colors',
+              locale === 'fi' ? 'text-brand-gold' : 'text-brand-cream/70 hover:text-brand-cream',
+            ]}
+          >FI</a>
+          <span class="text-brand-gold/30" aria-hidden="true">|</span>
+          <a
+            href={enHref}
+            class:list={[
+              'text-xs tracking-[0.15em] uppercase transition-colors',
+              locale === 'en' ? 'text-brand-gold' : 'text-brand-cream/70 hover:text-brand-cream',
+            ]}
+          >EN</a>
         </li>
       </ul>
     </div>
   </nav>
 </header>
 
-<script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
+<style is:global>
+  #site-nav.nav-scrolled {
+    background-color: rgba(26, 12, 51, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 169, 106, 0.1);
+  }
+</style>
 
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      menu.hidden = expanded;
-      toggle.setAttribute(
-        'aria-label',
-        expanded
-          ? toggle.dataset.labelOpen ?? 'Open menu'
-          : toggle.dataset.labelClose ?? 'Close menu'
-      );
+<script>
+  const nav = document.getElementById('site-nav');
+  const onScroll = () => nav?.classList.toggle('nav-scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.hidden = expanded;
+    });
+  }
+
+  const langToggle = document.getElementById('lang-toggle');
+  const langDropdown = document.getElementById('lang-dropdown');
+  if (langToggle && langDropdown) {
+    langToggle.addEventListener('click', () => {
+      const expanded = langToggle.getAttribute('aria-expanded') === 'true';
+      langToggle.setAttribute('aria-expanded', String(!expanded));
+      langDropdown.hidden = expanded;
+    });
+    document.addEventListener('click', (e) => {
+      if (!langToggle.contains(e.target as Node) && !langDropdown.contains(e.target as Node)) {
+        langToggle.setAttribute('aria-expanded', 'false');
+        langDropdown.hidden = true;
+      }
     });
   }
 </script>
