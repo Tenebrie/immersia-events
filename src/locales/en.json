@@ -29,13 +29,13 @@
       "link": "View all photos"
     },
     "values": {
-      "heading": "[Heading: What to expect]",
-      "item1_title": "[Value 1]",
-      "item1_body": "[Placeholder: short description of the first value or experience]",
-      "item2_title": "[Value 2]",
-      "item2_body": "[Placeholder: short description of the second value or experience]",
-      "item3_title": "[Value 3]",
-      "item3_body": "[Placeholder: short description of the third value or experience]"
+      "heading": "What to expect",
+      "item1_title": "Dance and performance",
+      "item1_body": "Historical and fantastical dances led by an experienced dance leader, with themed performances woven throughout the evening.",
+      "item2_title": "Fantasy in full bloom",
+      "item2_body": "Step into your character — long gowns, elven ears, wings, and all. The dress code is fantasy-themed formal attire, and interpretations are wonderfully varied.",
+      "item3_title": "Community",
+      "item3_body": "Meet fellow fantasy fans in person, share your fandoms, and create memories that last well beyond the ball."
     }
   },
   "events": {

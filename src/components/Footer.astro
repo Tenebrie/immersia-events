@@ -12,7 +12,6 @@ const year = new Date().getFullYear();
 
 const navLinks = [
   { key: 'nav.home', path: '/' },
-  { key: 'nav.events', path: '/events' },
   { key: 'nav.gallery', path: '/gallery' },
   { key: 'nav.about', path: '/about' },
   { key: 'nav.contact', path: '/contact' },
@@ -30,9 +29,6 @@ const navLinks = [
         >
           Immersia Events
         </a>
-        <p class="mt-3 text-sm text-brand-cream-muted leading-relaxed">
-          {t(locale, 'footer.tagline')}
-        </p>
       </div>
 
       <nav aria-label={locale === 'fi' ? 'Alatunnisteen navigaatio' : 'Footer navigation'}>

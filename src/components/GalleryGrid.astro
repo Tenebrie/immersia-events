@@ -27,7 +27,7 @@ type GalleryItem = {
 
 const galleryItems: GalleryItem[] = await Promise.all(
   images.map(async (img, i) => {
-    const thumb = await getImage({ src: img, width: 600, height: 400, fit: 'cover', format: 'webp' });
+    const thumb = await getImage({ src: img, width: 600, height: 900, fit: 'cover', format: 'webp' });
     const full = await getImage({ src: img, width: 1400, format: 'webp' });
     return {
       thumb,
@@ -61,10 +61,10 @@ const galleryItems: GalleryItem[] = await Promise.all(
             src={thumb.src}
             alt={`${t(locale, 'gallery.image_alt')} ${index + 1}`}
             width="600"
-            height="400"
+            height="900"
             loading="lazy"
             decoding="async"
-            class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            class="w-full aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </a>
       </div>

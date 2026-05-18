@@ -15,12 +15,9 @@ const { locale } = Astro.props;
     <div class="section-rule" aria-hidden="true">
       <Sparkle size={12} class="text-brand-gold" />
     </div>
-    <h1 class="font-display text-4xl md:text-5xl text-brand-cream tracking-wide mb-4">
+    <h1 class="font-display text-4xl md:text-5xl text-brand-cream tracking-wide">
       {t(locale, 'gallery.title')}
     </h1>
-    <p class="text-brand-cream/60 leading-relaxed">
-      {t(locale, 'gallery.subtitle')}
-    </p>
   </header>
 
   <div class="max-w-6xl mx-auto">
