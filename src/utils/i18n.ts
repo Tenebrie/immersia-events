@@ -20,6 +20,16 @@ export function t(locale: Locale, key: string): string {
   return typeof obj === 'string' ? obj : key;
 }
 
+export function tArray(locale: Locale, key: string): string[] {
+  const keys = key.split('.');
+  let obj: unknown = translations[locale] ?? translations.fi;
+  for (const k of keys) {
+    if (typeof obj !== 'object' || obj === null) return [];
+    obj = (obj as Record<string, unknown>)[k];
+  }
+  return Array.isArray(obj) ? obj.filter((item): item is string => typeof item === 'string') : [];
+}
+
 export function getAlternatePath(locale: Locale, pathname: string): string {
   if (locale === 'fi') {
     return `/en${pathname === '/' ? '' : pathname}`;

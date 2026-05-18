@@ -25,6 +25,16 @@
     "featured_event": {
       "heading": "Upcoming event"
     },
+    "venue": {
+      "heading": "The Venue",
+      "img_alt": "VPK's dance hall in Turku"
+    },
+    "dress_code_section": {
+      "more": "Outfit ideas & guidance →"
+    },
+    "tickets_section": {
+      "heading": "Get your tickets"
+    },
     "gallery_teaser": {
       "heading": "Impressions",
       "link": "View all photos"

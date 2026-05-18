@@ -25,6 +25,16 @@
     "featured_event": {
       "heading": "Tuleva tapahtuma"
     },
+    "venue": {
+      "heading": "Juhlapaikka",
+      "img_alt": "VPK:n talon juhlatila Turussa"
+    },
+    "dress_code_section": {
+      "more": "Asuvinkkejä ja lisätietoa pukukoodista →"
+    },
+    "tickets_section": {
+      "heading": "Hanki lippusi"
+    },
     "gallery_teaser": {
       "heading": "Tunnelmakuvia",
       "link": "Katso kaikki kuvat"

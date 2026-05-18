@@ -1,12 +1,15 @@
 ---
-import { getImage } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
 import Sparkle from '../Sparkle.astro';
 import EventCard from '../EventCard.astro';
 import GalleryGrid from '../GalleryGrid.astro';
 import type { Locale } from '../../utils/i18n';
-import { t, localePath } from '../../utils/i18n';
+import { t, tArray, localePath } from '../../utils/i18n';
+import venueImg1 from '../../assets/venue/IMG_7131-768x1024.jpeg';
+import venueImg2 from '../../assets/venue/IMG_7141-768x1024.jpeg';
+import venueImg3 from '../../assets/venue/IMG_7143-scaled.jpeg';
 
 interface Props {
   locale: Locale;
@@ -134,6 +137,70 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
   </div>
 </section>
 
+<!-- What is a fantasy ball? -->
+<section class="py-24 px-6" aria-labelledby="what-is-heading">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={12} class="text-brand-gold" />
+    </div>
+    <h2
+      id="what-is-heading"
+      class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide mb-6"
+    >
+      {t(locale, 'event_detail.what_is_heading')}
+    </h2>
+    <p class="text-brand-cream/70 leading-loose mb-5">
+      {t(locale, 'event_detail.what_is_body_1')}
+    </p>
+    <p class="text-brand-cream/70 leading-loose">
+      {t(locale, 'event_detail.what_is_body_3')}
+    </p>
+  </div>
+</section>
+
+<!-- Venue photos -->
+<section class="py-12 px-6" aria-labelledby="venue-heading">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={12} class="text-brand-gold" />
+      </div>
+      <h2
+        id="venue-heading"
+        class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide mb-4"
+      >
+        {t(locale, 'home.venue.heading')}
+      </h2>
+      <p class="text-brand-cream/70 leading-loose max-w-2xl mx-auto">
+        {t(locale, 'event_detail.description_2')}
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+      <Image
+        src={venueImg1}
+        alt={t(locale, 'home.venue.img_alt')}
+        class="w-full aspect-[3/4] object-cover"
+        width={768}
+        height={1024}
+      />
+      <Image
+        src={venueImg2}
+        alt={t(locale, 'home.venue.img_alt')}
+        class="w-full aspect-[3/4] object-cover"
+        width={768}
+        height={1024}
+      />
+      <Image
+        src={venueImg3}
+        alt={t(locale, 'home.venue.img_alt')}
+        class="w-full aspect-[3/4] object-cover"
+        width={768}
+        height={1024}
+      />
+    </div>
+  </div>
+</section>
+
 <!-- Gallery teaser -->
 {hasGalleryImages && (
   <section class="py-24 px-6" aria-labelledby="gallery-teaser-heading">
@@ -163,33 +230,82 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
   </section>
 )}
 
-<!-- Values trio -->
-<section class="py-24 px-6" aria-labelledby="values-heading">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-14">
+<!-- Programme: what's included -->
+<section class="py-24 px-6 bg-brand-purple/30" aria-labelledby="programme-heading">
+  <div class="max-w-3xl mx-auto">
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={12} class="text-brand-gold" />
+    </div>
+    <h2
+      id="programme-heading"
+      class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide mb-10 text-center"
+    >
+      {t(locale, 'event_detail.ticket_includes_heading')}
+    </h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4" role="list">
+      {tArray(locale, 'event_detail.ticket_includes').map((item) => (
+        <li class="flex items-start gap-3">
+          <Sparkle size={10} class="text-brand-gold shrink-0 mt-1.5" />
+          <span class="text-sm text-brand-cream/70 leading-relaxed">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- Dress code teaser -->
+<section class="py-24 px-6" aria-labelledby="dress-code-heading">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={12} class="text-brand-gold" />
+    </div>
+    <h2
+      id="dress-code-heading"
+      class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide mb-6"
+    >
+      {t(locale, 'event_detail.dress_code_heading')}
+    </h2>
+    <p class="text-brand-cream/70 leading-loose mb-4">
+      {t(locale, 'event_detail.dress_code_1')}
+    </p>
+    <p class="text-brand-cream/70 leading-loose mb-8">
+      {t(locale, 'event_detail.dress_code_2')}
+    </p>
+    {featuredEvent && (
+      <a
+        href={locale === 'fi' ? featuredEvent.data.urlFi : featuredEvent.data.urlEn}
+        class="text-sm tracking-[0.15em] uppercase text-brand-gold hover:text-brand-gold-light transition-colors"
+      >
+        {t(locale, 'home.dress_code_section.more')}
+      </a>
+    )}
+  </div>
+</section>
+
+<!-- Ticket CTA -->
+{featuredEvent?.data.ticketUrl && (
+  <section class="py-24 px-6 bg-brand-purple/30" aria-labelledby="tickets-cta-heading">
+    <div class="max-w-xl mx-auto text-center">
       <div class="section-rule" aria-hidden="true">
         <Sparkle size={12} class="text-brand-gold" />
       </div>
       <h2
-        id="values-heading"
-        class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide"
+        id="tickets-cta-heading"
+        class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide mb-8"
       >
-        {t(locale, 'home.values.heading')}
+        {t(locale, 'home.tickets_section.heading')}
       </h2>
+      <a
+        href={featuredEvent.data.ticketUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-tickets"
+      >
+        {t(locale, 'home.hero.tickets_cta')}
+      </a>
+      <p class="text-xs text-brand-cream/40 mt-6 tracking-wide">
+        {t(locale, 'event_detail.ticket_vat_note')}
+      </p>
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-      {(['1', '2', '3'] as const).map((n) => (
-        <div class="text-center md:text-left">
-          <Sparkle size={16} class="text-brand-gold mb-4 mx-auto md:mx-0" />
-          <h3 class="font-display text-xl text-brand-cream tracking-wide mb-3">
-            {t(locale, `home.values.item${n}_title`)}
-          </h3>
-          <p class="text-sm text-brand-cream/60 leading-relaxed">
-            {t(locale, `home.values.item${n}_body`)}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+  </section>
+)}
