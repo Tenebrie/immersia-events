@@ -20,7 +20,7 @@
     },
     "about_blurb": {
       "heading": "Immersia Events",
-      "body": "Immersia Events organises fantasy-themed events — evenings that pull you out of the everyday and invite you to immerse yourself in a world of imagination. The River Court Autumn Ball is the company's first step."
+      "body": ""
     },
     "featured_event": {
       "heading": "Upcoming event"
@@ -32,45 +32,58 @@
     "values": {
       "heading": "What to expect",
       "item1_title": "Dance and performance",
-      "item1_body": "Historical and fantastical dances led by an experienced dance leader, with themed performances woven throughout the evening.",
+      "item1_body": "",
       "item2_title": "Fantasy in full bloom",
-      "item2_body": "Step into your character — long gowns, elven ears, wings, and all. The dress code is fantasy-themed formal attire, and interpretations are wonderfully varied.",
+      "item2_body": "",
       "item3_title": "Community",
-      "item3_body": "Meet fellow fantasy fans in person, share your fandoms, and create memories that last well beyond the ball."
+      "item3_body": ""
     }
   },
   "events": {
     "title": "Events",
-    "subtitle": "[Placeholder: short introduction to upcoming events]",
+    "subtitle": "",
     "no_events": "No upcoming events at this time. Check back soon.",
     "details": {
       "when": "When",
       "where": "Where",
       "dress_code": "Dress code",
-      "dress_code_body": "[Placeholder: dress code description and guidance]",
+      "dress_code_body": "",
       "what_to_expect": "What to expect",
       "tickets_heading": "Tickets",
       "tickets_cta": "Buy tickets",
-      "tickets_note": "[Placeholder: short note about tickets, price, or availability]",
+      "tickets_note": "",
       "faq_heading": "Frequently asked questions",
-      "faq_q1": "[Question 1]",
-      "faq_a1": "[Placeholder: answer to question 1]",
-      "faq_q2": "[Question 2]",
-      "faq_a2": "[Placeholder: answer to question 2]",
+      "faq_q1": "",
+      "faq_a1": "",
+      "faq_q2": "",
+      "faq_a2": "",
       "back": "← Back to home"
     }
   },
   "gallery": {
     "title": "Gallery",
-    "subtitle": "[Placeholder: short description of gallery contents]",
+    "subtitle": "",
     "no_photos": "Photos coming soon.",
     "image_alt": "Gallery impression"
   },
   "about": {
     "title": "About",
-    "body1": "Immersia Events is a small events company founded by Johanna Ahonen, with the goal of organising fantasy-themed events. The name Immersia captures the immersive quality that a well-crafted fantasy event can offer — a world apart from the everyday. Immersia could just as well be the name of a fantasy realm, which makes it a perfect fit.",
-    "body2": "Johanna has been a lifelong fantasy reader, with over 35 years of experience in the genre. In her student years she served as chair of Finland's first Finncon-Eurocon. The Immersia Events trade name was registered in early 2026 to create a home for future fantasy-themed events.",
-    "logo_credit": "The Immersia Events logo was designed by Jani Kujanen.",
+    "body1": "Immersia Events is the trade name of sole trader Johanna Ahonen. Under this banner, the aim is to organise fantasy-themed events.",
+    "body2": "The name emerged from a desire to somehow reference the immersive, everyday-eclipsing experience that a well-crafted fantasy event can offer. At the same time, Immersia could equally be the name of a fantasy realm — which makes it a perfect fit.",
+    "body3": "I am the sole trader behind the idea for the River Court Autumn Ball. I have read and loved fantasy (and sci-fi) since my teenage years — I now have close to 35 years of experience with the genre.",
+    "body4": "I hold an MA in history from the University of Turku, and my main occupation is as a school counsellor at a Turku secondary school. My entrepreneurial journey began with freelance photography, though I later registered a trade name as I began planning to work as a career guidance entrepreneur. The events world has fascinated me for over 20 years — during my student years I was involved in organising Finland's first Finncon-Eurocon, serving as its chair. I registered the Immersia Events trade name in early 2026 so that I could continue organising fantasy-themed events.",
+    "body5": "I am an enthusiastic enthusiast, an eternal bookworm, a warm-hearted dreamer who sees the best in everyone.",
+    "body6": "At home, the chaos is maintained by my two primary-school daughters and my husband. When I am not planning a ball, I read books, go swimming, take photos, or accompany my children to riding lessons and other activities. In my dream world, I would also manage to squeeze in the occasional afternoon nap.",
+    "logo_credit": "The Immersia Events logo was designed by Johanna's husband Jani Kujanen, who is a graphic designer.",
+    "team_members": [
+      "Eeva Hiidensola",
+      "Tytti Korhonen",
+      "Jani Korhonen",
+      "Kristiina Marttila",
+      "Sanni Mäkijärvi",
+      "Mira Penttilä",
+      "Sara-Linnea Savokallio"
+    ],
     "values_heading": "Our values",
     "value1": "Inclusivity and equality",
     "value2": "Sense of community",
@@ -78,7 +91,7 @@
   },
   "contact": {
     "title": "Contact",
-    "intro": "[Placeholder: short text inviting visitors to get in touch — questions, collaboration, media enquiries]",
+    "intro": "",
     "email_heading": "Email",
     "email": "jokihovinsyystanssiaiset@gmail.com",
     "socials_heading": "Follow us",
@@ -87,7 +100,7 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "[Placeholder: short tagline]",
+    "tagline": "",
     "legal_name": "Immersia Events",
     "legal_person": "Elinkeinoharjoittaja Johanna Ahonen",
     "legal_id": "Y-tunnus 3430111-9"
@@ -106,13 +119,12 @@
   },
   "event_detail": {
     "description_1": "The elves and fae of the River Court welcome you to celebrate the beginning of the autumn season to the banks of River Aura, in Turku, Finland. Enjoy the themed programme, dance under the chandeliers, and immerse yourself in the magical atmosphere.",
-    "description_2": "The venue is a nouveau renaissance style palace — Turku Auxiliary Fire Corps' dance hall — which will transform into a fantasy court for just one night. Within the walls of the ballroom, all kinds of fantastical beings (and humans too) will party together and forget about the worries of the mundane world for a while.",
-    "description_3": "Come dressed as your favourite fantasy character or create your own fantasy look — we only ask that you opt for a slightly more formal outfit, something fit for the elegant theme of the evening.",
-    "description_4": "The River Court offers you the chance to dance both historical and more modern dances, in groups, in pairs, or by yourself. There will be themed programme and performances throughout the evening, and a selection of cocktail snacks available. Later in the evening, as the shadows darken outside, the ballroom will turn into a more nightclub-esque space for dancing into the wee hours.",
-    "description_5": "The event is for adults only (18+). The event ends at 1 am.",
+    "description_2": "The venue is a nouveau renaissance style palace — Turku Auxiliary Fire Corps' dance hall — which will transform into a fantasy court for just one night. Within the walls of the ballroom, all kinds of fantastical beings (and humans too) will party together and forget about the worries of the mundane world for a while. Come dressed as your favourite fantasy character, or choose an otherwise theme-appropriate formal outfit, and join your like-minded fellow guests.",
+    "description_3": "The River Court offers you the chance to dance both historical and more modern dances, in groups, in pairs, or by yourself. There will be themed programme and performances throughout the evening, and a selection of cocktail snacks available. Later in the evening, the court atmosphere gives way to a more nightclub-esque space for dancing into the wee hours.",
+    "description_4": "The event is for adults only (18+). The event ends at 1 am.",
     "what_is_heading": "What is a fantasy ball?",
     "what_is_body_1": "A fantasy ball is an event that combines the choreographed dancing of a formal ball with the costumed flair of a cosplay or historical event, all wrapped in a celebration of fantasy worlds and their fandoms.",
-    "what_is_body_2": "Fantasy balls are organised across the world — in the UK, France, the US, Canada, and elsewhere. Their growing popularity is driven in part by the rise of the romantasy genre and a new wave of reading culture. Fantasy fans find each other easily online, and when you add the desire to meet fellow enthusiasts in person and step into beloved fantasy stories, all the ingredients for a ball are in place.",
+    "what_is_body_2": "Fantasy balls are organised across the world — in the UK, France, the US, Canada, and elsewhere. Their growing popularity is driven in part by the rise of the romantasy genre and a new wave of reading culture (Booktok, Bookstagram). Fantasy fans find each other easily online, and when you add the desire to meet fellow enthusiasts in person and step into beloved fantasy stories, all the ingredients for a ball are in place.",
     "what_is_body_3": "Above all, a fantasy ball is a joyful expression of aesthetic fantasy culture — an event where everyone is encouraged to let their imagination and playfulness run free. You are welcome to dress spectacularly, dance far into the night, share your fandoms, and create memories.",
     "ticket_includes_heading": "The ticket price includes:",
     "ticket_includes": [
@@ -132,29 +144,31 @@
     "good_to_know_1": "The cocktail snacks we will be serving are more in the style of a light snack rather than a hearty meal. We therefore advise enjoying a proper dinner before the ball.",
     "good_to_know_2": "The main doors to the venue will open at 17.45. Tickets are checked digitally at the entrance. The main doors will be locked once the event's programme begins. If you arrive late, you can enter via the side entrance — the door staff will check your ticket there.",
     "side_events_heading": "Additional programme",
-    "side_events_body": "We will keep you updated about a separate dance workshop before the event, which will have a small attendance fee. We are also working on offering extra programme on Friday 4 September with the help of our collaborators. Participating in these activities is entirely voluntary. We will share more details as plans are confirmed.",
+    "side_events_body": "We will keep you updated about a possible dance workshop before the event; if it goes ahead, it will have a small attendance fee. We are also working on offering extra programme on Friday 4 September with the help of our collaborators — such as a small fantasy-themed market. These activities are separate from the ball itself, but are intended to get you in the mood and give you a chance to meet people; participation is entirely voluntary. We will share more details as plans are confirmed.",
     "accessibility_heading": "Accessibility and inclusivity",
     "accessibility_1": "The event venue is accessible for people with physical disabilities. There is an elevator to all floors and a wheelchair accessible ramp at the side entrance.",
-    "accessibility_2": "Many guests will be wearing long, formal gowns and even outfits with trains. Please be mindful of your surroundings when moving about the venue, so that everyone can move safely.",
-    "accessibility_3": "The event is, by its core values, inclusive and equal. Everyone is welcome to be who they are — or who they choose to portray during the ball — exactly as they are. The venue's restrooms will be marked gender neutral for the evening.",
+    "accessibility_2": "Many guests will be wearing long, formal gowns and even outfits with trains. Please be mindful of your surroundings when moving about the venue, so that everyone can move safely and with care.",
+    "accessibility_3": "The event is, by its core values, inclusive, equal, and community-minded. Everyone is welcome to be who they are — or who they choose to portray during the ball — exactly as they are. The venue's restrooms will be marked gender neutral for the evening.",
     "accessibility_4": "Each and every guest has the right to remain untouched and we do not accept any inappropriate, harmful, or discriminative conduct. Always make sure it is ok to touch or take a photo, and do not assume anything about anyone.",
-    "accessibility_5": "There is a named contact person for any harassment concerns. Good manners and consideration for others ensure a wonderful evening for everyone.",
+    "accessibility_5": "There is a named contact person for any harassment concerns, should anyone feel they have been harassed. Good manners and consideration for others ensure a wonderful evening for everyone.",
     "dress_code_heading": "Dress code and outfit ideas",
     "dress_code_1": "The dress code is fantasy-themed formal attire.",
-    "dress_code_2": "Draw inspiration from fantasy and fairy-tale worlds — films, series, and the styles described in novels. The theme of the River Court Autumn Ball is a generic fantasy court, so interpretations can be wonderfully varied.",
-    "dress_code_3": "Think long ball gowns, historical formal wear, elven ears, elaborate jewellery, wings, horns, or dramatic make-up effects. But the theme is broad — there is room for vampires, merfolk, hobbits, and the occasional ordinary human too.",
-    "dress_code_4": "At its simplest, you might hire a ball gown and dress it up with jewellery or flowers — your character, your story. What matters most to us is that you can dance and celebrate comfortably all evening.",
-    "dress_code_5": "When planning your outfit, give some thought to footwear too. We hope festivity shows from head to toe, but you are also here to dance through the night.",
+    "dress_code_2": "Draw inspiration from fantasy and fairy-tale worlds — films, series, and the styles described in novels.",
+    "dress_code_3": "Typically, a fantasy ball brings to mind long evening gowns and ball dresses, formal wear from historical periods, elven ears, elaborate jewellery, and perhaps props or dramatic make-up effects such as wings, horns, or pointed teeth.",
+    "dress_code_4": "The theme of the River Court Autumn Ball is a generic fantasy court, so interpretations can be wonderfully varied. Among the guests you might find elves, fae, warriors, vampires, merfolk, hobbits… And in many fantasy worlds there are also perfectly ordinary humans — or beings who look very much like humans — in the mix.",
+    "dress_code_5": "At its simplest, you might hire a ball gown and dress it up with jewellery or flowers — your character, your story. We will not be measuring the length of your hem or your train, checking how tight your corset is, imposing period requirements on your tailcoat, or policing whether your outfit was made to measure or assembled from your own wardrobe with a little imagination. What matters most to us is that you throw yourself into the fantasy from your own celebratory angle, and interpret it in a way that lets you dance and celebrate in (at least relative) comfort all evening!",
+    "dress_code_6": "When planning your outfit, give some thought to footwear too. We hope the festive spirit shows from head to toe — but you are also here to dance through the night.",
     "inspiration_heading": "Inspiration",
-    "inspiration_body": "For outfit ideas and a feel for the atmosphere, take a look at some international events. Follow for example these accounts on Instagram:",
+    "inspiration_body": "For outfit ideas and a feel for the atmosphere, take a look at some international events — their social media accounts give a sense of the atmosphere we are aiming for at the River Court Autumn Ball too. Follow for example these accounts on Instagram:",
     "inspiration_accounts": "@faetedfantasy · @mysticfateuk · @acourtofrainandrevelry · @metbymoonlightevents · @gauntletsandgownsevents · @lesbaldeslegendes · @faeriewayevents",
     "getting_there_heading": "Getting to Turku and the venue",
     "getting_there_1": "Turku is easy to reach by public transport. Both the main railway station and the bus terminal are a short walk from the city centre, where the venue is located at Eskelinkatu 5.",
     "getting_there_2": "International guests can fly to Helsinki or Turku. There are also ferry connections from Stockholm to Turku.",
-    "getting_there_3": "If you are arriving by car, street parking is available near the venue. The underground car parks P-Louhi and Toriparkki in the city centre are open around the clock.",
+    "getting_there_3": "For guests arriving by car, there is street parking near the venue, for example on Ursininkatu, Eerikinkatu, Yliopistonkatu, and Käsityöläiskatu. Parking in Turku is paid during the day; in the evenings some spaces are free. Always check the zone you are parking in.",
+    "getting_there_4": "The underground car parks P-Louhi and Toriparkki in the city centre are open around the clock. Parking there is always paid; accepted payment methods include parking apps and payment cards. Further details can be found on the car parks' own websites.",
     "accommodation_heading": "Accommodation",
-    "accommodation_intro": "Several hotels are within walking distance of the venue. The closest, Solo Sokos Hotel Turun Seurahuone, is directly across the street.",
-    "accommodation_sokos_deal": "A block of 20 hotel rooms has been reserved at discounted rates for guests of the River Court Autumn Ball for the night of 5–6 September 2026. Rates are 125 € (single) and 145 € (double), valid for bookings made before 29 August 2026 at 16:30, subject to availability. Please quote the code \"Jokihovin syystanssiaiset\" when booking, or use the online booking code BJOKIHOVI.",
-    "accommodation_other": "Radisson Blu Marina Palace is a few minutes' walk away. Other options in the city centre include Scandic, Sokos, and Omena chain hotels, as well as smaller boutique hotels — nearly all within a few minutes' walk of the venue."
+    "accommodation_intro": "Several hotels are within walking distance of the venue. The closest, Solo Sokos Hotel Turun Seurahuone, is directly across the street from VPK's dance hall. The River Court Autumn Ball has a partnership agreement and a block of discounted hotel rooms with Sokos Hotel Seurahuone.",
+    "accommodation_sokos_deal": "A block of 20 hotel rooms has been reserved at discounted rates for guests of the River Court Autumn Ball for the night of 5–6 September 2026. The rooms accommodate one or two guests; some have a double bed.\n\nThe offer rates — 125 € for a single room (Solo) and 145 € for a double room (Solo) — are valid for bookings made before 29 August 2026 at 16:30, subject to availability. When booking, please quote the code \"Jokihovin syystanssiaiset\". The online booking code is BJOKIHOVI.\n\nThe room rate includes a generous hotel breakfast, access to the guest sauna, wireless internet (Wi-Fi), and VAT.\n\nSolo Sokos Hotel Turun Seurahuone reserves the right to change prices.\n\nRoom reservations made from the block must be confirmed with a credit card or paid in advance at the time of booking.\n\nThe last free cancellation date for a block reservation is 4 days before the arrival date.\n\nThe hotel primarily recommends booking by phone or online.\n\nEach guest is responsible for their own accommodation costs. Accepted payment methods are cash, debit card, or credit card.\n\nPlease note that for data protection reasons, credit card details must not be sent by email.\n\nSolo Sokos Hotel Turun Seurahuone\nHumalistonkatu 2\n20100 Turku\nTel. 010 786 4000\n\nIndividual room reservations\nOpen: weekdays Mon–Fri 8:30–16:30\nPhone: +358 300 870 000\nEmail: sokos.hotels@sok.fi\nPlease quote the code Jokihovin syystanssiaiset when booking.\n\nwww.sokoshotels.fi – Online booking code BJOKIHOVI",
+    "accommodation_other": "Radisson Blu Marina Palace is a few minutes' walk away (within sight of the venue).\n\nThere are also other hotels in the city centre. Almost all of them are within a few minutes' walk of the venue.\nScandic chain hotels\nSokos Hotels\nBoutique hotel Park Hotel\nCentro Hotel\nForenom Aparthotel Turku\nOmena Hotel Humalistonkatu\nOmena Hotel Kauppiaskatu\n\nThere are also several bed & breakfast style accommodation options — listings can be found on, for example, Booking.com.\n\nIt is also worth exploring Airbnb, perhaps if travelling as a group of friends."
   }
 }
