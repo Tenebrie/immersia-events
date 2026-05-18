@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Etusivu",
+    "events": "Tapahtumat",
+    "gallery": "Galleria",
+    "about": "Meistä",
+    "contact": "Yhteystiedot",
+    "lang_switch": "EN",
+    "lang_switch_label": "Vaihda kieleksi englanniksi",
+    "open_menu": "Avaa valikko",
+    "close_menu": "Sulje valikko"
+  },
+  "home": {
+    "hero": {
+      "title": "[Otsikko: Tapahtuman iskulause]",
+      "subtitle": "[Paikkamerkki: 1–2 lausetta Immersia Events -tapahtumien tunnelmasta ja luonteesta]",
+      "cta": "Katso tulevat tapahtumat"
+    },
+    "about_blurb": {
+      "heading": "[Otsikko: Mitä teemme]",
+      "body": "[Paikkamerkki: 2–3 lausetta yrityksestä, sen toiminnasta ja tapahtumien hengestä. Kuvaa tunnelmaa ja kokemusta.]"
+    },
+    "featured_event": {
+      "heading": "Tuleva tapahtuma"
+    },
+    "gallery_teaser": {
+      "heading": "Tunnelmakuvia",
+      "link": "Katso kaikki kuvat"
+    },
+    "values": {
+      "heading": "[Otsikko: Mitä odottaa]",
+      "item1_title": "[Arvo 1]",
+      "item1_body": "[Paikkamerkki: lyhyt kuvaus ensimmäisestä arvosta tai kokemuksesta]",
+      "item2_title": "[Arvo 2]",
+      "item2_body": "[Paikkamerkki: lyhyt kuvaus toisesta arvosta tai kokemuksesta]",
+      "item3_title": "[Arvo 3]",
+      "item3_body": "[Paikkamerkki: lyhyt kuvaus kolmannesta arvosta tai kokemuksesta]"
+    }
+  },
+  "events": {
+    "title": "Tapahtumat",
+    "subtitle": "[Paikkamerkki: lyhyt johdantokappale tulevista tapahtumista]",
+    "no_events": "Tulevia tapahtumia ei ole tällä hetkellä. Tarkista uudelleen pian.",
+    "details": {
+      "when": "Milloin",
+      "where": "Missä",
+      "dress_code": "Pukukoodi",
+      "dress_code_body": "[Paikkamerkki: pukukoodin kuvaus ja ohjeet]",
+      "what_to_expect": "Mitä odottaa",
+      "tickets_heading": "Liput",
+      "tickets_cta": "[Liput tulossa pian — tarkista uudelleen myöhemmin]",
+      "faq_heading": "Usein kysytyt kysymykset",
+      "faq_q1": "[Kysymys 1]",
+      "faq_a1": "[Paikkamerkki: vastaus kysymykseen 1]",
+      "faq_q2": "[Kysymys 2]",
+      "faq_a2": "[Paikkamerkki: vastaus kysymykseen 2]",
+      "back": "← Takaisin tapahtumiin"
+    }
+  },
+  "gallery": {
+    "title": "Galleria",
+    "subtitle": "[Paikkamerkki: lyhyt kuvaus gallerian sisällöstä]",
+    "no_photos": "Kuvia lisätään pian.",
+    "image_alt": "Galleriatunnelmakuva"
+  },
+  "about": {
+    "title": "Meistä",
+    "body1": "[Paikkamerkki: 2–3 lausetta yrityksestä ja sen syntytarinasta. Kuka me olemme ja mistä kaikki alkoi.]",
+    "body2": "[Paikkamerkki: 2–3 lausetta tiimistä, arvoista ja siitä, mikä tekee tapahtumistamme erityisiä.]",
+    "values_heading": "Arvomme",
+    "value1": "[Arvo 1]",
+    "value2": "[Arvo 2]",
+    "value3": "[Arvo 3]"
+  },
+  "contact": {
+    "title": "Yhteystiedot",
+    "intro": "[Paikkamerkki: lyhyt teksti, joka kutsuu ottamaan yhteyttä — kysymykset, yhteistyö, media]",
+    "email_heading": "Sähköposti",
+    "email": "hei@immersia.fi",
+    "socials_heading": "Seuraa meitä",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "footer": {
+    "rights": "Kaikki oikeudet pidätetään.",
+    "tagline": "[Paikkamerkki: lyhyt slogan]"
+  },
+  "event_card": {
+    "learn_more": "Lue lisää",
+    "date_tbd": "Päivämäärä ilmoitetaan"
+  },
+  "meta": {
+    "site_name": "Immersia Events",
+    "home_desc": "[Paikkamerkki: sivuston lyhyt kuvaus hakukoneita varten]",
+    "events_desc": "[Paikkamerkki: tapahtumien sivun kuvaus]",
+    "gallery_desc": "[Paikkamerkki: gallerian sivun kuvaus]",
+    "about_desc": "[Paikkamerkki: Meistä-sivun kuvaus]",
+    "contact_desc": "[Paikkamerkki: yhteystietojen sivun kuvaus]"
+  }
+}

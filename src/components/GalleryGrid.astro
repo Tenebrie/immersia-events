@@ -1,0 +1,73 @@
+---
+import type { Locale } from '../utils/i18n';
+import { t } from '../utils/i18n';
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
+
+interface Props {
+  locale: Locale;
+  previewCount?: number;
+}
+
+const { locale, previewCount } = Astro.props;
+
+const allImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/*.{jpg,jpeg,webp,png}',
+  { eager: true }
+);
+
+const allImages = Object.values(allImageModules).map((m) => m.default);
+const images = previewCount ? allImages.slice(0, previewCount) : allImages;
+
+type GalleryItem = {
+  thumb: { src: string };
+  full: { src: string; width: number; height: number };
+  index: number;
+};
+
+const galleryItems: GalleryItem[] = await Promise.all(
+  images.map(async (img, i) => {
+    const thumb = await getImage({ src: img, width: 600, height: 400, fit: 'cover', format: 'webp' });
+    const full = await getImage({ src: img, width: 1400, format: 'webp' });
+    return {
+      thumb,
+      full: { src: full.src, width: img.width, height: img.height },
+      index: i,
+    };
+  })
+);
+---
+
+{galleryItems.length === 0 ? (
+  <p class="text-brand-cream-muted text-sm text-center py-12">
+    {t(locale, 'gallery.no_photos')}
+  </p>
+) : (
+  <div
+    id="gallery"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1"
+    role="list"
+  >
+    {galleryItems.map(({ thumb, full, index }) => (
+      <div role="listitem">
+        <a
+          href={full.src}
+          data-pswp-width={full.width}
+          data-pswp-height={full.height}
+          class="block overflow-hidden group focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-gold focus-visible:outline-offset-2"
+          aria-label={`${t(locale, 'gallery.image_alt')} ${index + 1}`}
+        >
+          <img
+            src={thumb.src}
+            alt={`${t(locale, 'gallery.image_alt')} ${index + 1}`}
+            width="600"
+            height="400"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </a>
+      </div>
+    ))}
+  </div>
+)}

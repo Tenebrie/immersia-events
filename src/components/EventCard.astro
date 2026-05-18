@@ -1,0 +1,43 @@
+---
+import Sparkle from './Sparkle.astro';
+import type { Locale } from '../utils/i18n';
+import { t, localePath } from '../utils/i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  event: CollectionEntry<'events'>;
+  locale: Locale;
+}
+
+const { event, locale } = Astro.props;
+const title = locale === 'fi' ? event.data.titleFi : event.data.titleEn;
+const slug = event.id;
+const href = localePath(locale, `/events/${slug}`);
+---
+
+<article class="border border-brand-gold/20 bg-brand-purple p-8 relative group">
+  <div class="absolute top-0 left-0 right-0 h-px bg-brand-gold/40"></div>
+
+  <div class="flex items-center gap-2 mb-4">
+    <Sparkle size={10} class="text-brand-gold/60" />
+    <time class="text-xs tracking-[0.15em] uppercase text-brand-cream-muted">
+      {event.data.date}
+    </time>
+  </div>
+
+  <h3 class="font-display text-2xl md:text-3xl text-brand-cream leading-tight mb-3">
+    {title}
+  </h3>
+
+  <p class="text-sm text-brand-cream-muted leading-relaxed mb-6">
+    {event.data.venue}
+  </p>
+
+  <a
+    href={href}
+    class="text-xs tracking-[0.15em] uppercase text-brand-gold hover:text-brand-gold-light transition-colors inline-flex items-center gap-2"
+  >
+    {t(locale, 'event_card.learn_more')}
+    <span aria-hidden="true">→</span>
+  </a>
+</article>

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AboutPageContent from '../../components/pages/AboutPageContent.astro';
+import { t } from '../../utils/i18n';
+---
+<BaseLayout locale="fi" title={t('fi', 'about.title')} description={t('fi', 'meta.about_desc')}>
+  <AboutPageContent locale="fi" />
+</BaseLayout>

@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Home",
+    "events": "Events",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "lang_switch": "FI",
+    "lang_switch_label": "Switch to Finnish",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
+  },
+  "home": {
+    "hero": {
+      "title": "[Heading: Short event tagline]",
+      "subtitle": "[Placeholder: 1–2 sentences about the atmosphere and nature of Immersia Events]",
+      "cta": "View upcoming events"
+    },
+    "about_blurb": {
+      "heading": "[Heading: What we do]",
+      "body": "[Placeholder: 2–3 sentences about the company, what it does, and the spirit of its events. Describe the atmosphere and experience.]"
+    },
+    "featured_event": {
+      "heading": "Upcoming event"
+    },
+    "gallery_teaser": {
+      "heading": "Impressions",
+      "link": "View all photos"
+    },
+    "values": {
+      "heading": "[Heading: What to expect]",
+      "item1_title": "[Value 1]",
+      "item1_body": "[Placeholder: short description of the first value or experience]",
+      "item2_title": "[Value 2]",
+      "item2_body": "[Placeholder: short description of the second value or experience]",
+      "item3_title": "[Value 3]",
+      "item3_body": "[Placeholder: short description of the third value or experience]"
+    }
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "[Placeholder: short introduction to upcoming events]",
+    "no_events": "No upcoming events at this time. Check back soon.",
+    "details": {
+      "when": "When",
+      "where": "Where",
+      "dress_code": "Dress code",
+      "dress_code_body": "[Placeholder: dress code description and guidance]",
+      "what_to_expect": "What to expect",
+      "tickets_heading": "Tickets",
+      "tickets_cta": "[Tickets coming soon — check back later]",
+      "faq_heading": "Frequently asked questions",
+      "faq_q1": "[Question 1]",
+      "faq_a1": "[Placeholder: answer to question 1]",
+      "faq_q2": "[Question 2]",
+      "faq_a2": "[Placeholder: answer to question 2]",
+      "back": "← Back to events"
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "[Placeholder: short description of gallery contents]",
+    "no_photos": "Photos coming soon.",
+    "image_alt": "Gallery impression"
+  },
+  "about": {
+    "title": "About",
+    "body1": "[Placeholder: 2–3 sentences about the company and its origin story. Who we are and where it all began.]",
+    "body2": "[Placeholder: 2–3 sentences about the team, values, and what makes our events special.]",
+    "values_heading": "Our values",
+    "value1": "[Value 1]",
+    "value2": "[Value 2]",
+    "value3": "[Value 3]"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "[Placeholder: short text inviting visitors to get in touch — questions, collaboration, media enquiries]",
+    "email_heading": "Email",
+    "email": "hello@immersia.fi",
+    "socials_heading": "Follow us",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "[Placeholder: short tagline]"
+  },
+  "event_card": {
+    "learn_more": "Learn more",
+    "date_tbd": "Date to be announced"
+  },
+  "meta": {
+    "site_name": "Immersia Events",
+    "home_desc": "[Placeholder: site description for search engines]",
+    "events_desc": "[Placeholder: events page description]",
+    "gallery_desc": "[Placeholder: gallery page description]",
+    "about_desc": "[Placeholder: about page description]",
+    "contact_desc": "[Placeholder: contact page description]"
+  }
+}

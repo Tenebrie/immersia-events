@@ -1,0 +1,42 @@
+---
+import Sparkle from '../Sparkle.astro';
+import GalleryGrid from '../GalleryGrid.astro';
+import type { Locale } from '../../utils/i18n';
+import { t } from '../../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<div class="pt-24 pb-32 px-6">
+  <header class="text-center mb-16 max-w-2xl mx-auto">
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={12} class="text-brand-gold" />
+    </div>
+    <h1 class="font-display text-4xl md:text-5xl text-brand-cream tracking-wide mb-4">
+      {t(locale, 'gallery.title')}
+    </h1>
+    <p class="text-brand-cream/60 leading-relaxed">
+      {t(locale, 'gallery.subtitle')}
+    </p>
+  </header>
+
+  <div class="max-w-6xl mx-auto">
+    <GalleryGrid locale={locale} />
+  </div>
+</div>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+    bgOpacity: 0.92,
+  });
+  lightbox.init();
+</script>

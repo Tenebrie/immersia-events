@@ -1,0 +1,53 @@
+---
+import Sparkle from '../Sparkle.astro';
+import type { Locale } from '../../utils/i18n';
+import { t } from '../../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<div class="pt-24 pb-32 px-6">
+  <div class="max-w-2xl mx-auto">
+
+    <header class="mb-14">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={12} class="text-brand-gold" />
+      </div>
+      <h1 class="font-display text-4xl md:text-5xl text-brand-cream tracking-wide">
+        {t(locale, 'about.title')}
+      </h1>
+    </header>
+
+    <div class="space-y-6 text-brand-cream/70 leading-loose mb-16">
+      <p>{t(locale, 'about.body1')}</p>
+      <p>{t(locale, 'about.body2')}</p>
+    </div>
+
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={10} class="text-brand-gold" />
+    </div>
+
+    <section aria-labelledby="values-heading">
+      <h2
+        id="values-heading"
+        class="font-display text-2xl text-brand-cream tracking-wide mb-8"
+      >
+        {t(locale, 'about.values_heading')}
+      </h2>
+      <ul class="space-y-4" role="list">
+        {(['1', '2', '3'] as const).map((n) => (
+          <li class="flex items-start gap-4">
+            <Sparkle size={12} class="text-brand-gold mt-1 shrink-0" />
+            <span class="text-brand-cream/75 leading-relaxed">
+              {t(locale, `about.value${n}`)}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+  </div>
+</div>

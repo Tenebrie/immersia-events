@@ -1,0 +1,198 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { getCollection } from 'astro:content';
+import Sparkle from '../Sparkle.astro';
+import EventCard from '../EventCard.astro';
+import GalleryGrid from '../GalleryGrid.astro';
+import type { Locale } from '../../utils/i18n';
+import { t, localePath } from '../../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const heroImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/hero.{jpg,jpeg,webp,png}',
+  { eager: true }
+);
+const heroImage = Object.values(heroImageModules)[0]?.default;
+
+const logoImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/logo.{png,svg,webp}',
+  { eager: true }
+);
+const logoImage = Object.values(logoImageModules)[0]?.default;
+
+const allEvents = await getCollection('events');
+const featuredEvent = allEvents.find((e) => e.data.featured) ?? allEvents[0];
+
+const galleryImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/*.{jpg,jpeg,webp,png}',
+  { eager: true }
+);
+const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
+---
+
+<!-- Hero -->
+<section
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  aria-labelledby="hero-heading"
+>
+  <!-- Background layers -->
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(135deg, #1a0c33 0%, #2a1248 50%, #3d1f63 100%);"
+    aria-hidden="true"
+  ></div>
+  {heroImage && (
+    <Image
+      src={heroImage}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity"
+      loading="eager"
+      widths={[800, 1200, 1600]}
+      sizes="100vw"
+    />
+  )}
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 py-24 max-w-3xl mx-auto">
+    {logoImage ? (
+      <div class="mb-10 flex justify-center">
+        <Image
+          src={logoImage}
+          alt="Immersia Events"
+          width={220}
+          loading="eager"
+          class="max-w-[220px]"
+        />
+      </div>
+    ) : (
+      <div class="mb-10 flex items-center justify-center gap-4" aria-hidden="true">
+        <Sparkle size={18} class="text-brand-gold/60" />
+        <span class="font-display text-4xl tracking-[0.3em] uppercase text-brand-cream">
+          Immersia
+        </span>
+        <Sparkle size={18} class="text-brand-gold/60" />
+      </div>
+    )}
+
+    <div class="flex items-center justify-center gap-4 mb-6" aria-hidden="true">
+      <span class="block h-px w-12 bg-brand-gold/30"></span>
+      <Sparkle size={12} class="text-brand-gold" />
+      <span class="block h-px w-12 bg-brand-gold/30"></span>
+    </div>
+
+    <h1
+      id="hero-heading"
+      class="font-display text-4xl md:text-6xl lg:text-7xl text-brand-cream tracking-wider leading-tight mb-6"
+    >
+      {t(locale, 'home.hero.title')}
+    </h1>
+
+    <p class="text-base md:text-lg text-brand-cream/70 leading-relaxed max-w-xl mx-auto mb-10">
+      {t(locale, 'home.hero.subtitle')}
+    </p>
+
+    <a href={localePath(locale, '/events')} class="btn-primary">
+      {t(locale, 'home.hero.cta')}
+    </a>
+  </div>
+</section>
+
+<!-- About blurb -->
+<section class="py-24 px-6" aria-labelledby="about-heading">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="section-rule" aria-hidden="true">
+      <Sparkle size={12} class="text-brand-gold" />
+    </div>
+    <h2
+      id="about-heading"
+      class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide mb-6"
+    >
+      {t(locale, 'home.about_blurb.heading')}
+    </h2>
+    <p class="text-brand-cream/70 leading-loose">
+      {t(locale, 'home.about_blurb.body')}
+    </p>
+  </div>
+</section>
+
+<!-- Featured event -->
+{featuredEvent && (
+  <section class="py-12 px-6 bg-brand-purple/30" aria-labelledby="featured-heading">
+    <div class="max-w-3xl mx-auto">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={12} class="text-brand-gold" />
+      </div>
+      <h2
+        id="featured-heading"
+        class="font-display text-2xl tracking-[0.15em] uppercase text-brand-cream-muted text-center mb-8"
+      >
+        {t(locale, 'home.featured_event.heading')}
+      </h2>
+      <EventCard event={featuredEvent} locale={locale} />
+    </div>
+  </section>
+)}
+
+<!-- Gallery teaser -->
+{hasGalleryImages && (
+  <section class="py-24 px-6" aria-labelledby="gallery-teaser-heading">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <div class="section-rule" aria-hidden="true">
+          <Sparkle size={12} class="text-brand-gold" />
+        </div>
+        <h2
+          id="gallery-teaser-heading"
+          class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide"
+        >
+          {t(locale, 'home.gallery_teaser.heading')}
+        </h2>
+      </div>
+      <GalleryGrid locale={locale} previewCount={3} />
+      <div class="text-center mt-8">
+        <a
+          href={localePath(locale, '/gallery')}
+          class="text-sm tracking-[0.15em] uppercase text-brand-gold hover:text-brand-gold-light transition-colors inline-flex items-center gap-2"
+        >
+          {t(locale, 'home.gallery_teaser.link')}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Values trio -->
+<section class="py-24 px-6" aria-labelledby="values-heading">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={12} class="text-brand-gold" />
+      </div>
+      <h2
+        id="values-heading"
+        class="font-display text-3xl md:text-4xl text-brand-cream tracking-wide"
+      >
+        {t(locale, 'home.values.heading')}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+      {(['1', '2', '3'] as const).map((n) => (
+        <div class="text-center md:text-left">
+          <Sparkle size={16} class="text-brand-gold mb-4 mx-auto md:mx-0" />
+          <h3 class="font-display text-xl text-brand-cream tracking-wide mb-3">
+            {t(locale, `home.values.item${n}_title`)}
+          </h3>
+          <p class="text-sm text-brand-cream/60 leading-relaxed">
+            {t(locale, `home.values.item${n}_body`)}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

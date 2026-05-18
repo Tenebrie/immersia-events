@@ -1,0 +1,143 @@
+---
+import { Menu, X } from 'lucide-astro';
+import type { Locale } from '../utils/i18n';
+import { t, localePath, getAlternatePath } from '../utils/i18n';
+
+interface Props {
+  locale: Locale;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+
+const navLinks = [
+  { key: 'nav.home', path: '/' },
+  { key: 'nav.events', path: '/events' },
+  { key: 'nav.gallery', path: '/gallery' },
+  { key: 'nav.about', path: '/about' },
+  { key: 'nav.contact', path: '/contact' },
+];
+
+function isActive(path: string): boolean {
+  const full = localePath(locale, path);
+  if (path === '/') return currentPath === full;
+  return currentPath.startsWith(full);
+}
+
+const alternatePath = getAlternatePath(locale, currentPath);
+---
+
+<header>
+  <nav
+    id="site-nav"
+    aria-label={locale === 'fi' ? 'Päänavigaatio' : 'Main navigation'}
+    class="fixed top-0 left-0 right-0 z-50 bg-brand-purple/90 backdrop-blur-sm border-b border-brand-gold/10"
+  >
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+      <a
+        href={localePath(locale, '/')}
+        class="font-display text-xl tracking-[0.2em] uppercase text-brand-cream hover:text-brand-gold transition-colors"
+        aria-label={t(locale, 'meta.site_name')}
+      >
+        Immersia
+      </a>
+
+      <!-- Desktop navigation -->
+      <ul class="hidden md:flex items-center gap-8" role="list">
+        {navLinks.map(({ key, path }) => (
+          <li>
+            <a
+              href={localePath(locale, path)}
+              aria-current={isActive(path) ? 'page' : undefined}
+              class:list={[
+                'text-xs tracking-[0.15em] uppercase font-body transition-colors',
+                isActive(path)
+                  ? 'text-brand-gold'
+                  : 'text-brand-cream/80 hover:text-brand-cream',
+              ]}
+            >
+              {t(locale, key)}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="hidden md:flex items-center">
+        <a
+          href={alternatePath}
+          aria-label={t(locale, 'nav.lang_switch_label')}
+          class="text-xs tracking-[0.15em] uppercase text-brand-gold/70 hover:text-brand-gold transition-colors"
+        >
+          {t(locale, 'nav.lang_switch')}
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={t(locale, 'nav.open_menu')}
+        class="md:hidden text-brand-cream/80 hover:text-brand-cream transition-colors p-1"
+      >
+        <Menu size={22} aria-hidden="true" />
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      hidden
+      class="md:hidden border-t border-brand-gold/10 bg-brand-purple"
+    >
+      <ul class="px-6 py-4 flex flex-col gap-4" role="list">
+        {navLinks.map(({ key, path }) => (
+          <li>
+            <a
+              href={localePath(locale, path)}
+              aria-current={isActive(path) ? 'page' : undefined}
+              class:list={[
+                'block text-sm tracking-[0.12em] uppercase transition-colors py-1',
+                isActive(path)
+                  ? 'text-brand-gold'
+                  : 'text-brand-cream/80 hover:text-brand-cream',
+              ]}
+            >
+              {t(locale, key)}
+            </a>
+          </li>
+        ))}
+        <li class="pt-2 border-t border-brand-gold/10">
+          <a
+            href={alternatePath}
+            aria-label={t(locale, 'nav.lang_switch_label')}
+            class="text-xs tracking-[0.15em] uppercase text-brand-gold/70 hover:text-brand-gold transition-colors"
+          >
+            {t(locale, 'nav.lang_switch')}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.hidden = expanded;
+      toggle.setAttribute(
+        'aria-label',
+        expanded
+          ? toggle.dataset.labelOpen ?? 'Open menu'
+          : toggle.dataset.labelClose ?? 'Close menu'
+      );
+    });
+  }
+</script>

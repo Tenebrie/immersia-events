@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventDetailContent from '../../components/pages/EventDetailContent.astro';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({
+    params: { slug: event.id },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const title = event.data.titleFi;
+---
+<BaseLayout locale="fi" title={title}>
+  <EventDetailContent event={event} locale="fi" />
+</BaseLayout>

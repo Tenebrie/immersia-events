@@ -1,0 +1,77 @@
+---
+import Sparkle from '../Sparkle.astro';
+import type { Locale } from '../../utils/i18n';
+import { t } from '../../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const email = t(locale, 'contact.email');
+---
+
+<div class="pt-24 pb-32 px-6">
+  <div class="max-w-xl mx-auto">
+
+    <header class="mb-14">
+      <div class="section-rule" aria-hidden="true">
+        <Sparkle size={12} class="text-brand-gold" />
+      </div>
+      <h1 class="font-display text-4xl md:text-5xl text-brand-cream tracking-wide mb-4">
+        {t(locale, 'contact.title')}
+      </h1>
+      <p class="text-brand-cream/60 leading-relaxed">
+        {t(locale, 'contact.intro')}
+      </p>
+    </header>
+
+    <div class="space-y-10">
+
+      <section aria-labelledby="email-heading">
+        <h2
+          id="email-heading"
+          class="text-xs tracking-[0.15em] uppercase text-brand-gold/70 mb-3"
+        >
+          {t(locale, 'contact.email_heading')}
+        </h2>
+        <a
+          href={`mailto:${email}`}
+          class="font-display text-2xl text-brand-cream hover:text-brand-gold transition-colors"
+        >
+          {email}
+        </a>
+      </section>
+
+      <div class="h-px bg-brand-gold/10"></div>
+
+      <section aria-labelledby="socials-heading">
+        <h2
+          id="socials-heading"
+          class="text-xs tracking-[0.15em] uppercase text-brand-gold/70 mb-4"
+        >
+          {t(locale, 'contact.socials_heading')}
+        </h2>
+        <ul class="flex flex-col gap-3" role="list">
+          <li>
+            <a
+              href="#"
+              class="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors tracking-wide"
+            >
+              {t(locale, 'contact.instagram')}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors tracking-wide"
+            >
+              {t(locale, 'contact.facebook')}
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</div>

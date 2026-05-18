@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventsListContent from '../../components/pages/EventsListContent.astro';
+import { t } from '../../utils/i18n';
+---
+<BaseLayout locale="fi" title={t('fi', 'events.title')} description={t('fi', 'meta.events_desc')}>
+  <EventsListContent locale="fi" />
+</BaseLayout>
