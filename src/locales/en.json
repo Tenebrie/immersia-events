@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "event": "Event",
     "events": "Events",
     "gallery": "Gallery",
     "about": "About",
@@ -38,6 +39,11 @@
     "gallery_teaser": {
       "heading": "Impressions",
       "link": "View all photos"
+    },
+    "community": {
+      "heading": "Join the community",
+      "body": "Meet fellow guests, share outfit ideas, ask questions, and follow the latest updates on our Discord server.",
+      "cta": "Join our Discord"
     },
     "values": {
       "heading": "What to expect",
@@ -106,11 +112,13 @@
     "email": "jokihovinsyystanssiaiset@gmail.com",
     "socials_heading": "Follow us",
     "instagram": "Instagram",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "discord": "Discord"
   },
   "footer": {
     "rights": "All rights reserved.",
     "tagline": "",
+    "discord": "Join us on Discord",
     "legal_name": "Immersia Events",
     "legal_person": "Elinkeinoharjoittaja Johanna Ahonen",
     "legal_id": "Y-tunnus 3430111-9"
@@ -181,7 +189,7 @@
     "getting_there_4": "The underground car parks P-Louhi and Toriparkki in the city centre are open around the clock. Parking there is always paid; accepted payment methods include parking apps and payment cards. Further details can be found on the car parks' own websites.",
     "accommodation_heading": "Accommodation",
     "accommodation_intro": "Several hotels are within walking distance of the venue. The closest, Solo Sokos Hotel Turun Seurahuone, is directly across the street from VPK's dance hall. The River Court Autumn Ball has a partnership agreement and a block of discounted hotel rooms with Sokos Hotel Seurahuone.",
-    "accommodation_sokos_deal": "A block of 20 hotel rooms has been reserved at discounted rates for guests of the River Court Autumn Ball for the night of 5–6 September 2026. The rooms accommodate one or two guests; some have a double bed.\n\nThe offer rates — 125 € for a single room (Solo) and 145 € for a double room (Solo) — are valid for bookings made before 29 August 2026 at 16:30, subject to availability. When booking, please quote the code \"Jokihovin syystanssiaiset\". The online booking code is BJOKIHOVI.\n\nThe room rate includes a generous hotel breakfast, access to the guest sauna, wireless internet (Wi-Fi), and VAT.\n\nSolo Sokos Hotel Turun Seurahuone reserves the right to change prices.\n\nRoom reservations made from the block must be confirmed with a credit card or paid in advance at the time of booking.\n\nThe last free cancellation date for a block reservation is 4 days before the arrival date.\n\nThe hotel primarily recommends booking by phone or online.\n\nEach guest is responsible for their own accommodation costs. Accepted payment methods are cash, debit card, or credit card.\n\nPlease note that for data protection reasons, credit card details must not be sent by email.\n\nSolo Sokos Hotel Turun Seurahuone\nHumalistonkatu 2\n20100 Turku\nTel. 010 786 4000\n\nIndividual room reservations\nOpen: weekdays Mon–Fri 8:30–16:30\nPhone: +358 300 870 000\nEmail: sokos.hotels@sok.fi\nPlease quote the code Jokihovin syystanssiaiset when booking.\n\nwww.sokoshotels.fi – Online booking code BJOKIHOVI",
+    "accommodation_sokos_deal": "A block of 20 hotel rooms has been reserved at Solo Sokos Hotel at discounted rates for guests of the River Court Autumn Ball for the night of 5–6 September 2026. The rooms accommodate one or two guests; some have a double bed.\n\nThe offer rates — 125 € for a single room and 145 € for a double room — are valid for bookings made before 29 August 2026 at 16:30, subject to availability. When booking, please quote the code \"Jokihovin syystanssiaiset\". The online booking code is BJOKIHOVI.\n\nThe room rate includes a generous hotel breakfast, access to the guest sauna, wireless internet (Wi-Fi), and VAT.\n\nSolo Sokos Hotel Turun Seurahuone reserves the right to change prices.\n\nRoom reservations made from the block must be confirmed with a credit card or paid in advance at the time of booking.\n\nThe last free cancellation date for a block reservation is 4 days before the arrival date.\n\nThe hotel primarily recommends booking by phone or online.\n\nEach guest is responsible for their own accommodation costs. Accepted payment methods are cash, debit card, or credit card.\n\nPlease note that for data protection reasons, credit card details must not be sent by email.\n\nSolo Sokos Hotel Turun Seurahuone\nHumalistonkatu 2\n20100 Turku\nTel. 010 786 4000\n\nIndividual room reservations\nOpen: weekdays Mon–Fri 8:30–16:30\nPhone: +358 300 870 000\nEmail: sokos.hotels@sok.fi\nPlease quote the code Jokihovin syystanssiaiset when booking.\n\nwww.sokoshotels.fi – Online booking code BJOKIHOVI",
     "accommodation_other": "Radisson Blu Marina Palace is a few minutes' walk away (within sight of the venue).\n\nThere are also other hotels in the city centre. Almost all of them are within a few minutes' walk of the venue.\nScandic chain hotels\nSokos Hotels\nBoutique hotel Park Hotel\nCentro Hotel\nForenom Aparthotel Turku\nOmena Hotel Humalistonkatu\nOmena Hotel Kauppiaskatu\n\nThere are also several bed & breakfast style accommodation options — listings can be found on, for example, Booking.com.\n\nIt is also worth exploring Airbnb, perhaps if travelling as a group of friends."
   }
 }

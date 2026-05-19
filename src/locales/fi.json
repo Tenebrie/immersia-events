@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Etusivu",
+    "event": "Tapahtuma",
     "events": "Tapahtumat",
     "gallery": "Galleria",
     "about": "Meistä",
@@ -38,6 +39,11 @@
     "gallery_teaser": {
       "heading": "Tunnelmakuvia",
       "link": "Katso kaikki kuvat"
+    },
+    "community": {
+      "heading": "Liity yhteisöön",
+      "body": "Tapaa muita juhlavieraita, jaa asuideoita, kysy kysymyksiä ja seuraa tuoreimpia kuulumisia Discord-palvelimellamme.",
+      "cta": "Liity Discord-yhteisöömme"
     },
     "values": {
       "heading": "Mitä odottaa",
@@ -106,11 +112,13 @@
     "email": "jokihovinsyystanssiaiset@gmail.com",
     "socials_heading": "Seuraa meitä",
     "instagram": "Instagram",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "discord": "Discord"
   },
   "footer": {
     "rights": "Kaikki oikeudet pidätetään.",
     "tagline": "",
+    "discord": "Liity Discord-yhteisöömme",
     "legal_name": "Immersia Events",
     "legal_person": "Elinkeinoharjoittaja Johanna Ahonen",
     "legal_id": "Y-tunnus 3430111-9"
