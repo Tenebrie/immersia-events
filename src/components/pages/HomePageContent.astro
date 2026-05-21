@@ -260,14 +260,22 @@ const hasGalleryImages = Object.keys(galleryImageModules).length > 0;
     >
       {t(locale, "home.tickets_section.heading")}
     </h2>
-    <a
-      href={TICKET_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn-tickets"
-    >
-      {t(locale, "home.hero.tickets_cta")}
-    </a>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href={TICKET_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-tickets"
+      >
+        {t(locale, "home.hero.tickets_cta")}
+      </a>
+      <a
+        href={eventHref}
+        class="text-sm tracking-[0.12em] uppercase text-brand-cream/60 hover:text-brand-cream transition-colors"
+      >
+        {t(locale, "home.hero.cta")}
+      </a>
+    </div>
     <p class="text-xs text-brand-cream/40 mt-6 tracking-wide">
       {t(locale, "event_detail.ticket_vat_note")}
     </p>
