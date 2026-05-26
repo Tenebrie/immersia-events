@@ -14,6 +14,16 @@ interface Props {
 const { locale, title, description } = Astro.props;
 const siteName = t(locale, 'meta.site_name');
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+
+// Build canonical + hreflang alternates from the current pathname.
+// Strip any /en prefix to derive the FI (default) path, then mirror it under /en for the EN variant.
+// Keep trailing slashes consistent with Astro's directory-format output (and the sitemap).
+const pathname = Astro.url.pathname;
+const fiPath = pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+const enPath = fiPath === '/' ? '/en/' : `/en${fiPath}`;
+const fiUrl = new URL(fiPath, Astro.site).href;
+const enUrl = new URL(enPath, Astro.site).href;
+const canonicalUrl = locale === 'fi' ? fiUrl : enUrl;
 ---
 
 <!doctype html>
@@ -24,6 +34,10 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     <meta name="generator" content={Astro.generator} />
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="fi" href={fiUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={fiUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
   </head>
